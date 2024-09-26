@@ -1,0 +1,29 @@
+/* CSS untuk memastikan lebar tab fakultas penuh */
+.nav-pills {
+    display: flex;
+    justify-content: space-around; /* Tab tersebar secara merata */
+    width: 100%; /* Mengisi seluruh lebar container */
+}
+.nav-pills li button{
+    color: black;
+}
+
+.nav-link {
+    flex: 1; /* Setiap tab memenuhi lebar container secara proporsional */
+    text-align: center;
+    padding: 10px;
+}
+
+/* CSS untuk membuat tabel juga responsif */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Tambahkan padding untuk kenyamanan pada layar kecil */
+@media (max-width: 768px) {
+    .nav-link {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

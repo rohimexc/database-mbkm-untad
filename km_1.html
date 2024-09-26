@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KM 1</title>
+    <!-- Bootstrap CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="card bg-primary mb-3">
+        <ul class="nav nav-pills">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pertukaran Mahasiswa Merdeka</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/pmm_1_out.html">PMM 1 Outbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_2_out.html">PMM 2 Outbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_3_out.html">PMM 3 Outbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_4_out.html">PMM 4 Outbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_1_in.html">PMM 1 Inbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_3_in.html">PMM 3 Inbound</a></li>
+                <li><a class="dropdown-item" href="/pmm_4_in.html">PMM 4 Inbound</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Kampus Mengajar</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/km_1.html">KM 1</a></li>
+                <li><a class="dropdown-item" href="/km_2.html">KM 2</a></li>
+                <li><a class="dropdown-item" href="/km_3.html">KM 3</a></li>
+                <li><a class="dropdown-item" href="/km_4.html">KM 4</a></li>
+                <li><a class="dropdown-item" href="/km_5.html">KM 5</a></li>
+                <li><a class="dropdown-item" href="/km_6.html">KM 6</a></li>
+                <li><a class="dropdown-item" href="/km_7.html">KM 7</a></li>
+                <li><a class="dropdown-item" href="/km_8.html">KM 8</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Magang dan Studi Independen Bersertifikat</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/msib_1.html">MSIB 1</a></li>
+                <li><a class="dropdown-item" href="/msib_2.html">MSIB 2</a></li>
+                <li><a class="dropdown-item" href="/msib_3.html">MSIB 3</a></li>
+                <li><a class="dropdown-item" href="/msib_4.html">MSIB 4</a></li>
+                <li><a class="dropdown-item" href="/msib_5.html">MSIB 5</a></li>
+                <li><a class="dropdown-item" href="/msib_6.html">MSIB 6</a></li>
+                <li><a class="dropdown-item" href="/msib_7.html">MSIB 7</a></li>
+              </ul>
+            </li>
+          </ul>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="fkip-tab" data-bs-toggle="pill" data-bs-target="#fkip" type="button" role="tab">FKIP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fisip-tab" data-bs-toggle="pill" data-bs-target="#fisip" type="button" role="tab">FISIP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="feb-tab" data-bs-toggle="pill" data-bs-target="#feb" type="button" role="tab">FEB</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fh-tab" data-bs-toggle="pill" data-bs-target="#fh" type="button" role="tab">FH</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="faperta-tab" data-bs-toggle="pill" data-bs-target="#faperta" type="button" role="tab">FAPERTA</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fatek-tab" data-bs-toggle="pill" data-bs-target="#fatek" type="button" role="tab">FATEK</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fmipa-tab" data-bs-toggle="pill" data-bs-target="#fmipa" type="button" role="tab">FMIPA</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fahut-tab" data-bs-toggle="pill" data-bs-target="#fahut" type="button" role="tab">FAHUT</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fapetkan-tab" data-bs-toggle="pill" data-bs-target="#fapetkan" type="button" role="tab">FAPETKAN</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fkm-tab" data-bs-toggle="pill" data-bs-target="#fkm" type="button" role="tab">FKM</button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card-body">
+            <!-- Tabs for Fakultas -->
+            <div class="d-flex align-items-right gap-2 gap-lg-3">
+                <h5 class="card-title">Data Kampus Mengajar Angkatan 1</h5>
+                <button id="download-btn" class="btn btn-primary">Download Excel</button>
+            </div>
+            <hr>
+            <!-- Tab content for Fakultas -->
+            <div class="tab-content" id="pills-tabContent">
+                <!-- FKIP -->
+                <div class="tab-pane fade show active" id="fkip" role="tabpanel">
+                    
+                    <table id="fkip-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama </th>
+                                <th>NIM</th>
+                                <th>Prodi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sriwulandari S.Dm. Lawaidjo</td>
+                                <td>A11117017</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>SAMS URI</td>
+                                <td>A11117116</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>RAFLI ADRIAN H.RAGA</td>
+                                <td>A11117155</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>SRIWAHYUNI</td>
+                                <td>A11117158</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>Fina Triani Ts. Lasuma</td>
+                                <td>A11117175</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>ZETYADI</td>
+                                <td>A11117179</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>Mauli Rahayu Wardani</td>
+                                <td>A11117196</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>MOH. REZA</td>
+                                <td>A11117200</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>WISDA HAMSAT</td>
+                                <td>A11118177</td>
+                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>MASYITHA MADANI A.T.SYAM</td>
+                                <td>A12117084</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>JULIA KANSERINI</td>
+                                <td>A12117265</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>AGIL SETIAWAN</td>
+                                <td>A12118009</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>NUR INDAH DWI PUTRI</td>
+                                <td>A12118030</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>JHOVANI DIVINITY ZETLYN SUMAMPOUW</td>
+                                <td>A12118034</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>EFFELLIANY KAPELE</td>
+                                <td>A12118046</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>DINI SABILA ANJANILA</td>
+                                <td>A12118084</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>MARZELA PRATIWI</td>
+                                <td>A12118095</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>BALGIS</td>
+                                <td>A12118152</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>RAHMAWATI</td>
+                                <td>A12118163</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>MELINDA MARIA KORBAN</td>
+                                <td>A12118166</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>ZHAHRA NINGSI</td>
+                                <td>A12118170</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>MUNAWARA. H</td>
+                                <td>A12118180</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>NUR MAYA</td>
+                                <td>A12118184</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>NIRMALA</td>
+                                <td>A12118192</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>ADE MUTIA</td>
+                                <td>A12118268</td>
+                                <td>Pendidikan Bahasa Inggris</td>
+                            </tr>
+                            <tr>
+                                <td>ADELIN MIYUKI ALO</td>
+                                <td>A22118041</td>
+                                <td>Pendidikan Biologi</td>
+                            </tr>
+                            <tr>
+                                <td>ELLY QIREY MINAMI PRATIWI</td>
+                                <td>A22118043</td>
+                                <td>Pendidikan Biologi</td>
+                            </tr>
+                            <tr>
+                                <td>FARAH RAHMAYANTI</td>
+                                <td>A23118002</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>ANGGRIANI</td>
+                                <td>A23118006</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>ZIYAD CHALID</td>
+                                <td>A23118008</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>ZERENT AXA ROSSA</td>
+                                <td>A23118019</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>ESTI EMBANG</td>
+                                <td>A23118049</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>KAMILA BADJEBER</td>
+                                <td>A23118063</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>MIRNAWATI</td>
+                                <td>A23118103</td>
+                                <td>Pendidikan Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>Alda Risma</td>
+                                <td>A24117001</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>Muh. Hendri</td>
+                                <td>A24117033</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>SITHI AISYAH AT. THAHIRAH</td>
+                                <td>A24117066</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>ARIANA YUNI SYAROFAH</td>
+                                <td>A24118011</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>EKA WAHYUNI</td>
+                                <td>A24118021</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>RAHMAD TULE</td>
+                                <td>A24118024</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>BRIAN MUHAMMAD LARATE</td>
+                                <td>A24118058</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>GI LANG</td>
+                                <td>A24118070</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>SELFINA M. SULAEMAN</td>
+                                <td>A24118073</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>KURNIAWAN WIJAYA P.</td>
+                                <td>A24118092</td>
+                                <td>Pendidikan Fisika</td>
+                            </tr>
+                            <tr>
+                                <td>AMRI</td>
+                                <td>A31117025</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>SAPRIN</td>
+                                <td>A31118001</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>MOH. YUSRIL</td>
+                                <td>A31118010</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>NUR LELA</td>
+                                <td>A31118019</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>ABDUL WAHID</td>
+                                <td>A31118022</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>ASTRI ILHAWINY</td>
+                                <td>A31118041</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>RENAL DIN</td>
+                                <td>A31118046</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>ANGGI</td>
+                                <td>A31118050</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>NURUL ILMI</td>
+                                <td>A31118056</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>PATl MAH</td>
+                                <td>A31118058</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>HAKIMMATUS SOLEHA</td>
+                                <td>A31118080</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>ABDI LAWANATA ULO</td>
+                                <td>A31118082</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>MOH. APRIZAL</td>
+                                <td>A31118094</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>YULRAMIRANTI AUK KARURUKAN</td>
+                                <td>A31118115</td>
+                                <td>Pendidikan Sejarah</td>
+                            </tr>
+                            <tr>
+                                <td>AKNES DIANA KAMAWO</td>
+                                <td>A40118002</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>EVI YOSEVIN BALONGKA</td>
+                                <td>A40118004</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>YANUARTI INGGRIT GEOFANI TAOGI</td>
+                                <td>A40118021</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>YENNI CAHYANI BONTINGE</td>
+                                <td>A40118034</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>DESINTA FIDIA ASTUTI</td>
+                                <td>A40118080</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>IRVAN PRANATA BETA</td>
+                                <td>A40118094</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MUHAMMAD ADIL DWIPUTRA</td>
+                                <td>A40118141</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>APRILIA MEWANDA KALARA</td>
+                                <td>A40118143</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>REGINA TRINATASYA</td>
+                                <td>A40118150</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>SETYA NURMAWADDAH</td>
+                                <td>A40118161</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>VIVI MAGFIRAH IDRUS</td>
+                                <td>A40118168</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>GABRIELA SPANIK BOKA</td>
+                                <td>A40118170</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>HERLISA MARKUS</td>
+                                <td>A40118185</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>RAHMIWATI</td>
+                                <td>A40118278</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>NURAENI</td>
+                                <td>A40118281</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>NI GUSTI NYOMAN SRIAYUNI</td>
+                                <td>A40118292</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MAWADDA B. SAHIDO</td>
+                                <td>A40118294</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>SITI WARFINIANTY</td>
+                                <td>A40118296</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>RINDAYANI</td>
+                                <td>A40118299</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MARWIARIFAH</td>
+                                <td>A40118301</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>APRIYANTO TAMPANDJO</td>
+                                <td>A40118305</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>NUR KHALIFAH</td>
+                                <td>A40118313</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>ARMIATI SAFITRI</td>
+                                <td>A40118315</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>ELA SELVIANI SUPI</td>
+                                <td>A40118319</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>NOVIA SAFITRI DJ</td>
+                                <td>A40118370</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>HAERUNISA</td>
+                                <td>A40118371</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MARWA APRILIANA</td>
+                                <td>A40118375</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>KARTIKA TRIFIANTY</td>
+                                <td>A40118396</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>SUTRIANI</td>
+                                <td>A40118404</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MARSELA MANURU KURORU</td>
+                                <td>A40118406</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MERILIN VINI WANIHI</td>
+                                <td>A40118408</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>MERILIN VINI WANIHI</td>
+                                <td>A40118408</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>IRA RIVANA SIABILA</td>
+                                <td>A40118413</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>HENDRA GUNAWAN DESE</td>
+                                <td>A40118437</td>
+                                <td>Pendidikan Guru Sekolah Dasar</td>
+                            </tr>
+                            <tr>
+                                <td>SAHRIR</td>
+                                <td>A42118116</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>ABD. HARIS</td>
+                                <td>A42118137</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>JUMANSAH</td>
+                                <td>A42118150</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>MUH HASRAF</td>
+                                <td>A42118178</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>FAJARUDDIN</td>
+                                <td>A42118183</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>IIN FARLINA</td>
+                                <td>A42118184</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>GUGUN GUNAWAN</td>
+                                <td>A42118201</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>FIRMANSYAH</td>
+                                <td>A42118204</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                            <tr>
+                                <td>MOCHAMMAD RIDHA SAPUTRA M. GAZALI</td>
+                                <td>A42118289</td>
+                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FISIP -->
+                <div class="tab-pane fade" id="fisip" role="tabpanel">
+                    <table id="fisip-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>
+
+                <!-- FEB -->
+                <div class="tab-pane fade" id="feb" role="tabpanel">
+                    <table id="feb-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama </th>
+                                <th>NIM</th>
+                                <th>Prodi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JUWITA ASTINA</td>
+                                <td>C30118002</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>NUR AVNI SYAMSUDDIN</td>
+                                <td>C30118004</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>NADIA ADI BAH SOFTEN</td>
+                                <td>C30118015</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>SALMAH</td>
+                                <td>C30118022</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>NOVIA</td>
+                                <td>C30118024</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>SRI ERLIANI WAHYUNINGSIH</td>
+                                <td>C30118034</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>WIRANTI</td>
+                                <td>C30118038</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>VINDY ANNISA</td>
+                                <td>C30118054</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>RACHMA MANOPPO</td>
+                                <td>C30118061</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>WIDYA NINGSI</td>
+                                <td>C30118111</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>KEVIN</td>
+                                <td>C30118115</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>M. SAHRUL SALEH</td>
+                                <td>C30118116</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>WIWIEK WIDYANINGSIH</td>
+                                <td>C30118178</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                            <tr>
+                                <td>LIS SRIWINARTI</td>
+                                <td>C30118238</td>
+                                <td>Akuntansi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FH -->
+                <div class="tab-pane fade" id="fh" role="tabpanel">
+                    <table id="fh-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>
+
+                <!-- Fakultas lainnya bisa ditambahkan sesuai kebutuhan -->
+                <div class="tab-pane fade" id="faperta" role="tabpanel">
+                    <table id="faperta-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                </div>
+
+                <!-- FATEK -->
+                <div class="tab-pane fade" id="fatek" role="tabpanel">
+                    
+                    <table id="fatek-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama </th>
+                                <th>NIM</th>
+                                <th>Prodi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NUR FAHLI RIZA FAUZI</td>
+                                <td>F11118016</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>NURKHALISA</td>
+                                <td>F11118023</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>SITI MARDATILLAH</td>
+                                <td>F11118029</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>MELDI ALFAJRI</td>
+                                <td>F11118037</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>NUR ANISA</td>
+                                <td>F11118177</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>DEWI AFRIYANTI</td>
+                                <td>F11118220</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>SAFAAT</td>
+                                <td>F11118237</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>FAIZAH</td>
+                                <td>F11118244</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>MUSFIRA</td>
+                                <td>F11118246</td>
+                                <td>Teknik Sipil</td>
+                            </tr>
+                            <tr>
+                                <td>Dewi Nur Alisa Ningsi</td>
+                                <td>F22117020</td>
+                                <td>Arsitektur</td>
+                            </tr>
+                            <tr>
+                                <td>ARMEN DANIEL MANALU</td>
+                                <td>F44118018</td>
+                                <td>Teknik Elektro</td>
+                            </tr>
+                            <tr>
+                                <td>GABRIELLA PUTRI SIANG TANDI</td>
+                                <td>F44118032</td>
+                                <td>Teknik Elektro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FMIPA -->
+                <div class="tab-pane fade" id="fmipa" role="tabpanel">
+
+                    <table id="fmipa-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama </th>
+                                <th>NIM</th>
+                                <th>Prodi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ABDUL ROHIM</td>
+                                <td>G20118043</td>
+                                <td>Matematika</td>
+                            </tr>
+                            <tr>
+                                <td>DINI DWI YUNIA</td>
+                                <td>G30118047</td>
+                                <td>Kimia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FAHUT -->
+                <div class="tab-pane fade" id="fahut" role="tabpanel">
+                    <table id="fahut-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <!-- FAPETKAN -->
+                <div class="tab-pane fade" id="fapetkan" role="tabpanel">
+                    <table id="fapetkan-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <!-- FKM -->
+                <div class="tab-pane fade" id="fkm" role="tabpanel">
+                    <table id="fkm-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama</th>
+                                <th>Program Studi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    
+</div>
+
+<!-- Bootstrap and DataTables JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Apply DataTables to all tables
+        $('table').DataTable();
+    });
+</script>
+<script>
+    // Function to download table data as Excel
+    function downloadTableAsExcel(tableID) {
+        // Get DataTable instance using the table ID
+        var table = $('#' + tableID).DataTable();  // Correctly refer to tableID
+        if (table.data().length === 0) {
+            alert("Tabel kosong, tidak ada data untuk diunduh.");
+            return;  // Stop execution if table is empty
+        }
+        var data = [];
+
+        // Get table headers
+        var headers = [];
+        $('#' + tableID + ' thead th').each(function () {
+            headers.push($(this).text());
+        });
+        data.push(headers);  // Add headers to the data array
+
+        // Get all table data (including non-visible rows due to pagination)
+        table.rows().every(function () {
+            var rowData = this.data();
+            data.push(rowData);  // Add row data to the data array
+        });
+
+        // Create new workbook and worksheet
+        var workbook = XLSX.utils.book_new();
+        var worksheet = XLSX.utils.aoa_to_sheet(data);  // Create worksheet from array of arrays (aoa)
+
+        // Add worksheet to workbook
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        // Export workbook to XLSX file and trigger download
+        XLSX.writeFile(workbook, 'Data Peserta MBKM.xlsx');
+    }
+
+    // Function to get the active tab and download the corresponding table
+    document.getElementById("download-btn").addEventListener("click", function () {
+        const activeTab = document.querySelector(".tab-pane.active");
+
+        if (activeTab) {
+            // Find the table inside the active tab
+            const table = activeTab.querySelector("table");
+            if (table) {
+                const tableID = table.getAttribute("id");
+                downloadTableAsExcel(tableID);
+            } else {
+                alert("Tidak ada tabel di tab yang aktif.");
+            }
+        } else {
+            alert("Tidak ada tab yang aktif.");
+        }
+    });
+</script>
+
+
+</body>
+</html>
