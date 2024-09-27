@@ -652,14 +652,67 @@
     
 </div>
 
-<!-- Bootstrap and DataTables JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
     $(document).ready(function() {
         // Apply DataTables to all tables
         $('table').DataTable();
+    });
+</script>
+<script>
+    // Function to download table data as Excel
+    function downloadTableAsExcel(tableID) {
+        // Get DataTable instance using the table ID
+        var table = $('#' + tableID).DataTable();  // Correctly refer to tableID
+        if (table.data().length === 0) {
+            alert("Tabel kosong, tidak ada data untuk diunduh.");
+            return;  // Stop execution if table is empty
+        }
+        var data = [];
+
+        // Get table headers
+        var headers = [];
+        $('#' + tableID + ' thead th').each(function () {
+            headers.push($(this).text());
+        });
+        data.push(headers);  // Add headers to the data array
+
+        // Get all table data (including non-visible rows due to pagination)
+        table.rows().every(function () {
+            var rowData = this.data();
+            data.push(rowData);  // Add row data to the data array
+        });
+
+        // Create new workbook and worksheet
+        var workbook = XLSX.utils.book_new();
+        var worksheet = XLSX.utils.aoa_to_sheet(data);  // Create worksheet from array of arrays (aoa)
+
+        // Add worksheet to workbook
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        // Export workbook to XLSX file and trigger download
+        XLSX.writeFile(workbook, 'Data Peserta MBKM.xlsx');
+    }
+
+    // Function to get the active tab and download the corresponding table
+    document.getElementById("download-btn").addEventListener("click", function () {
+        const activeTab = document.querySelector(".tab-pane.active");
+
+        if (activeTab) {
+            // Find the table inside the active tab
+            const table = activeTab.querySelector("table");
+            if (table) {
+                const tableID = table.getAttribute("id");
+                downloadTableAsExcel(tableID);
+            } else {
+                alert("Tidak ada tabel di tab yang aktif.");
+            }
+        } else {
+            alert("Tidak ada tab yang aktif.");
+        }
     });
 </script>
 
