@@ -1,1895 +1,1961 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KM 3</title>
     <!-- Bootstrap CSS -->
-    <link href="styles.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
-</head>
-<body>
-
-<div class="container mt-4">
-    <div class="card bg-primary mb-3">
+    <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="card bg-primary mb-3">
         <ul class="nav nav-pills">
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pertukaran Mahasiswa Merdeka</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_1_out">PMM 1 Outbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_2_out">PMM 2 Outbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_3_out">PMM 3 Outbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_4_out">PMM 4 Outbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_1_in">PMM 1 Inbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_3_in">PMM 3 Inbound</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_4_in">PMM 4 Inbound</a></li>
-              </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pertukaran Mahasiswa Merdeka</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_1_out">PMM 1 Outbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_2_out">PMM 2 Outbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_3_out">PMM 3 Outbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_4_out">PMM 4 Outbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_1_in">PMM 1 Inbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_3_in">PMM 3 Inbound</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/pmm_4_in">PMM 4 Inbound</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Kampus Mengajar</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_1">KM 1</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_2">KM 2</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_3">KM 3</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_4">KM 4</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_5">KM 5</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_6">KM 6</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_7">KM 7</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/km_8">KM 8</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Magang dan Studi Independen Bersertifikat</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_1">MSIB 1</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_2">MSIB 2</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_3">MSIB 3</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_4">MSIB 4</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_5">MSIB 5</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_6">MSIB 6</a></li>
+              <li><a class="dropdown-item" href="/database-mbkm-untad/msib_7">MSIB 7</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="fkip-tab" data-bs-toggle="pill" data-bs-target="#fkip" type="button" role="tab">FKIP</button>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Kampus Mengajar</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_1">KM 1</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_2">KM 2</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_3">KM 3</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_4">KM 4</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_5">KM 5</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_6">KM 6</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_7">KM 7</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/km_8">KM 8</a></li>
-              </ul>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fisip-tab" data-bs-toggle="pill" data-bs-target="#fisip" type="button" role="tab">FISIP</button>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Magang dan Studi Independen Bersertifikat</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_1">MSIB 1</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_2">MSIB 2</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_3">MSIB 3</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_4">MSIB 4</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_5">MSIB 5</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_6">MSIB 6</a></li>
-                <li><a class="dropdown-item" href="/database-mbkm-untad/msib_7">MSIB 7</a></li>
-              </ul>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="feb-tab" data-bs-toggle="pill" data-bs-target="#feb" type="button" role="tab">FEB</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fh-tab" data-bs-toggle="pill" data-bs-target="#fh" type="button" role="tab">FH</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="faperta-tab" data-bs-toggle="pill" data-bs-target="#faperta" type="button" role="tab">FAPERTA</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fatek-tab" data-bs-toggle="pill" data-bs-target="#fatek" type="button" role="tab">FATEK</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fmipa-tab" data-bs-toggle="pill" data-bs-target="#fmipa" type="button" role="tab">FMIPA</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fahut-tab" data-bs-toggle="pill" data-bs-target="#fahut" type="button" role="tab">FAHUT</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fapetkan-tab" data-bs-toggle="pill" data-bs-target="#fapetkan" type="button" role="tab">FAPETKAN</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="fkm-tab" data-bs-toggle="pill" data-bs-target="#fkm" type="button" role="tab">FKM</button>
             </li>
           </ul>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="fkip-tab" data-bs-toggle="pill" data-bs-target="#fkip" type="button" role="tab">FKIP</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fisip-tab" data-bs-toggle="pill" data-bs-target="#fisip" type="button" role="tab">FISIP</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="feb-tab" data-bs-toggle="pill" data-bs-target="#feb" type="button" role="tab">FEB</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fh-tab" data-bs-toggle="pill" data-bs-target="#fh" type="button" role="tab">FH</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="faperta-tab" data-bs-toggle="pill" data-bs-target="#faperta" type="button" role="tab">FAPERTA</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fatek-tab" data-bs-toggle="pill" data-bs-target="#fatek" type="button" role="tab">FATEK</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fmipa-tab" data-bs-toggle="pill" data-bs-target="#fmipa" type="button" role="tab">FMIPA</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fahut-tab" data-bs-toggle="pill" data-bs-target="#fahut" type="button" role="tab">FAHUT</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fapetkan-tab" data-bs-toggle="pill" data-bs-target="#fapetkan" type="button" role="tab">FAPETKAN</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="fkm-tab" data-bs-toggle="pill" data-bs-target="#fkm" type="button" role="tab">FKM</button>
-                </li>
-            </ul>
         </div>
-        
+
         <div class="card-body">
-            <!-- Tabs for Fakultas -->
-            <div class="d-flex align-items-right gap-2 gap-lg-3">
-                <h5 class="card-title">Data Kampus Mengajar Angkatan 3</h5>
-                <button id="download-btn" class="btn btn-primary">Download Excel</button>
+          <!-- Tabs for Fakultas -->
+          <div class="d-flex align-items-right gap-2 gap-lg-3">
+            <h5 class="card-title">Data Kampus Mengajar Angkatan 3</h5>
+            <button id="download-btn" class="btn btn-primary">Download Excel</button>
+          </div>
+          <hr />
+          <!-- Tab content for Fakultas -->
+          <div class="tab-content" id="pills-tabContent">
+            <!-- FKIP -->
+            <div class="tab-pane fade show active" id="fkip" role="tabpanel">
+              <table id="fkip-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                    <th>Sekolah</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ADITHA NUR RAHMA</td>
+                    <td>A24119068</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 3 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>ADITYA RAMADAN</td>
+                    <td>A42118004</td>
+                    <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                    <td>SMP NEGERI 1 TANANTOVEA</td>
+                  </tr>
+                  <tr>
+                    <td>ADRIANSAH I. GIASI</td>
+                    <td>A24119110</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 3 PAMONA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>AFRIADI</td>
+                    <td>A11119180</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD ISLAM TERPADU IMAM MUSLIM</td>
+                  </tr>
+                  <tr>
+                    <td>Ainun Mutmainnah</td>
+                    <td>A40119213</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 18 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>ALFINALIS MANTENDE</td>
+                    <td>A11119093</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 1 LORE UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>ALKHAF SHABAN</td>
+                    <td>A12118032</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SDN 2 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>ALMUHAIMIN</td>
+                    <td>A35119007</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD INPRES TOLOLE</td>
+                  </tr>
+                  <tr>
+                    <td>ANDI NURAFDHALIA</td>
+                    <td>A23119099</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 2 BUNGKU SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>ANDIRA RISFIANI</td>
+                    <td>A12119034</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP BALA KESELAMATAN BALAMOA</td>
+                  </tr>
+                  <tr>
+                    <td>ANDRIANI</td>
+                    <td>A23119089</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>ANGELA PRISKA WATI</td>
+                    <td>A24119034</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD INPRES 9 BAMBA</td>
+                  </tr>
+                  <tr>
+                    <td>ANIDYA CITRA MAYUNI</td>
+                    <td>A40119209</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
+                  </tr>
+                  <tr>
+                    <td>ANNISA REZEKI</td>
+                    <td>A24119124</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>ANSAR</td>
+                    <td>A40119076</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES 12 BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>ARI FERDIAN</td>
+                    <td>A40119014</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES BALUMPEWA</td>
+                  </tr>
+                  <tr>
+                    <td>ARINA OKTAVIANI</td>
+                    <td>A23119123</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES 6 WATUOGE</td>
+                  </tr>
+                  <tr>
+                    <td>ARINDA</td>
+                    <td>A12119026</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD ISLAM ALHIDAYAH BESUSU</td>
+                  </tr>
+                  <tr>
+                    <td>ARRUM PUSPASARI</td>
+                    <td>A11119055</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD NEGERI 12 LIMRAN</td>
+                  </tr>
+                  <tr>
+                    <td>ASNAH</td>
+                    <td>A32119023</td>
+                    <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
+                    <td>SD NEGERI 16 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>ASWINDA</td>
+                    <td>A40119053</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD BALA KESELAMATAN PUROO</td>
+                  </tr>
+                  <tr>
+                    <td>BACHTIAR</td>
+                    <td>A24119031</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SDN 18 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>BULAN PURNAMA INDAH</td>
+                    <td>A24119011</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 3 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>CAHAYATUL HUSNA</td>
+                    <td>A11119095</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 1 LORE UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>CHRISTY IMELD CORNELIA MODJEDJE</td>
+                    <td>A11119008</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD GKST PEURA</td>
+                  </tr>
+                  <tr>
+                    <td>Dealy Cintia Wulur</td>
+                    <td>A42119153</td>
+                    <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                    <td>SD ISLAM ALHIDAYAH BESUSU</td>
+                  </tr>
+                  <tr>
+                    <td>DELVIANI PUTRI</td>
+                    <td>A31119071</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SMP NEGERI 3 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>DENADHA NATALIYA GENTE</td>
+                    <td>A40119069</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD GKST PEURA</td>
+                  </tr>
+                  <tr>
+                    <td>DENNISA MBATONO</td>
+                    <td>A40119054</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD GKST PEURA</td>
+                  </tr>
+                  <tr>
+                    <td>DEWI YULIANA SUMBUNG</td>
+                    <td>A24119051</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP BALA KESELAMATAN BALAMOA</td>
+                  </tr>
+                  <tr>
+                    <td>DIAN RISKITA A.R PARINU</td>
+                    <td>A40119041</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD ISLAM TERPADU IMAM MUSLIM</td>
+                  </tr>
+                  <tr>
+                    <td>DIAN SAFITRI</td>
+                    <td>A11119153</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD N PASIREURIH 1</td>
+                  </tr>
+                  <tr>
+                    <td>DIAN WAHYUNI</td>
+                    <td>A40119184</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES LAWUA I</td>
+                  </tr>
+                  <tr>
+                    <td>DINIL HAERANI</td>
+                    <td>A25119001</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD KECIL WANA</td>
+                  </tr>
+                  <tr>
+                    <td>DITA MARLINA</td>
+                    <td>A35119084</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SMP NEGERI 1 TANANTOVEA</td>
+                  </tr>
+                  <tr>
+                    <td>DITA SAFITRI</td>
+                    <td>A25119032</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD ISLAM ALHIDAYAH BESUSU</td>
+                  </tr>
+                  <tr>
+                    <td>DUWITA GONI</td>
+                    <td>A40119125</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES BINANGGA</td>
+                  </tr>
+                  <tr>
+                    <td>EKA SAFITRI LAILLATUL JANAH</td>
+                    <td>A23119066</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP BALA KESELAMATAN MARANATHA</td>
+                  </tr>
+                  <tr>
+                    <td>ELFIRA RUSLI</td>
+                    <td>A40119208</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 2 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>ELISSANDRA BANGE</td>
+                    <td>A25119101</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 10 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>ELISSHA HERIYANTI</td>
+                    <td>A25119022</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 1 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>ELMA RAHMAYANI</td>
+                    <td>A23119018</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES BINANGGA</td>
+                  </tr>
+                  <tr>
+                    <td>ELSA PEKIRI</td>
+                    <td>A11119115</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD NEGERI 14 POSO</td>
+                  </tr>
+                  <tr>
+                    <td>ESTER LAPALESA</td>
+                    <td>A23119084</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 1 PAMONA TIMUR</td>
+                  </tr>
+                  <tr>
+                    <td>FADEL MUHAMAD</td>
+                    <td>A11119160</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD NEGERI 2 TINGGEDE</td>
+                  </tr>
+                  <tr>
+                    <td>FAHMI ARIFIN</td>
+                    <td>A24119049</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD KARYA THAYYIBAH MAMBORO</td>
+                  </tr>
+                  <tr>
+                    <td>FAISAL</td>
+                    <td>a23118061</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 1 SINDUE TOBATA</td>
+                  </tr>
+                  <tr>
+                    <td>FANDA RIYANTI</td>
+                    <td>A11119158</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SDN OGOMEGANGDAERAH KHUSUS</td>
+                  </tr>
+                  <tr>
+                    <td>FARADIBA ISYUDIN BAID</td>
+                    <td>A31118132</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SDN 8 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>FARA LUTFIAH</td>
+                    <td>A41119024</td>
+                    <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
+                    <td>SD INPRES 2 BALUASE</td>
+                  </tr>
+                  <tr>
+                    <td>FIKRIAWAN LAPASERE</td>
+                    <td>A42119051</td>
+                    <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                    <td>SD KECIL WANA</td>
+                  </tr>
+                  <tr>
+                    <td>FIRDAYANI</td>
+                    <td>A12119014</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 1 POSO PESISIR</td>
+                  </tr>
+                  <tr>
+                    <td>FITRIA NINGSI</td>
+                    <td>A23118025</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES 12 BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>FITRIA WATI</td>
+                    <td>A24119136</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SDIT BINA ANAK BANGSA</td>
+                  </tr>
+                  <tr>
+                    <td>FITRI RAMADANI SYAMSUL</td>
+                    <td>A11119038</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 1 BUNGKU PESISIR</td>
+                  </tr>
+                  <tr>
+                    <td>FRISKA</td>
+                    <td>A23119110</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES 2 BALUASE</td>
+                  </tr>
+                  <tr>
+                    <td>GABRIELA THERESIA MAURU</td>
+                    <td>A11119014</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SDN BUYUNGKATEDO</td>
+                  </tr>
+                  <tr>
+                    <td>GALU PARWATI</td>
+                    <td>A23119010</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 3 POSO KOTA UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>HAERURRASIKIN</td>
+                    <td>A40119206</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 8 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>HANIFAH SUSANTI</td>
+                    <td>A35119082</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SDN 10 TANJUNG GUNUNG</td>
+                  </tr>
+                  <tr>
+                    <td>HARMILA</td>
+                    <td>A40119011</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES 12 BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>HESTI FEBRIANA</td>
+                    <td>A11119056</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SDN 5 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>HIRAWATI</td>
+                    <td>A23118021</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI 17 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>HUSNUL KHATIMAH</td>
+                    <td>A25119034</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 10 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>ILAWATI</td>
+                    <td>A25119036</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 1 SINDUE</td>
+                  </tr>
+                  <tr>
+                    <td>I LUH RESTINI</td>
+                    <td>A23119006</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI 17 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>I MADE ARYA WEDA</td>
+                    <td>A24119027</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 1 SOJOL UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>IMAM MUHAIMIN A. ISOL</td>
+                    <td>A31119016</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SMP BALA KESELAMATAN KALAWARA</td>
+                  </tr>
+                  <tr>
+                    <td>I PUTU PASEK GUNAWAN</td>
+                    <td>A35119022</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SDN BUYUNGKATEDO</td>
+                  </tr>
+                  <tr>
+                    <td>ISMA DEWANTI</td>
+                    <td>A25119052</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD NEGERI 12 LIMRAN</td>
+                  </tr>
+                  <tr>
+                    <td>JORGI SAPUTRA</td>
+                    <td>A31119023</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD NEGERI 16 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>JUAN DWI PRASETYO PAEMBA</td>
+                    <td>A24119042</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 1 PAMONA TIMUR</td>
+                  </tr>
+                  <tr>
+                    <td>JUSMAN</td>
+                    <td>A24119130</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 1 BUNGKU PESISIR</td>
+                  </tr>
+                  <tr>
+                    <td>KARMILA</td>
+                    <td>A40119001</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>KOMANG YULVITA TUMPU</td>
+                    <td>A40119068</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN BUYUNGKATEDO</td>
+                  </tr>
+                  <tr>
+                    <td>KRISTAMIALIN WALILI</td>
+                    <td>A35119079</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD BALA KESELAMATAN KANTEWU</td>
+                  </tr>
+                  <tr>
+                    <td>KRISTHA STEFINA MAMBOYU</td>
+                    <td>A31119055</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD KECIL OLOBARU</td>
+                  </tr>
+                  <tr>
+                    <td>LATIFAH ENDANG WULANDARI</td>
+                    <td>A12119199</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 9 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>LISA RAUDATUL AULIA</td>
+                    <td>A31119031</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD NEGERI 16 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>LISSYA DARLINT OKTAVIA LIE RABETA</td>
+                    <td>A25119037</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD KARYA THAYYIBAH MAMBORO</td>
+                  </tr>
+                  <tr>
+                    <td>MARLINA NURSUSANTI</td>
+                    <td>A24119043</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD BALA KESELAMATAN KANTEWU</td>
+                  </tr>
+                  <tr>
+                    <td>MARWA DARMIN</td>
+                    <td>A23119094</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI NO. 211 INPRES CAMPAGAYA</td>
+                  </tr>
+                  <tr>
+                    <td>MIFTAHUL JANNAH</td>
+                    <td>A12119197</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD NEGERI 20 DOMPU</td>
+                  </tr>
+                  <tr>
+                    <td>MIFTAHUL JANNAH</td>
+                    <td>A12119012</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD NEGERI 20 DOMPU</td>
+                  </tr>
+                  <tr>
+                    <td>Miftahul Riska</td>
+                    <td>A41119035</td>
+                    <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
+                    <td>SD INPRES BALUMPEWA</td>
+                  </tr>
+                  <tr>
+                    <td>MILYANI M</td>
+                    <td>A23119092</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 3 BALAESANG</td>
+                  </tr>
+                  <tr>
+                    <td>MISNAWATI</td>
+                    <td>A24119026</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
+                  </tr>
+                  <tr>
+                    <td>MOH AFANDI</td>
+                    <td>A42119032</td>
+                    <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                    <td>SDN 2 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>MOH IBNU</td>
+                    <td>A35119003</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>MOH. RIFAL SALAMSES</td>
+                    <td>A12119028</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 2 BUNGKU SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>MOH. RIZKI WAHYU PUTRA</td>
+                    <td>A31119028</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SMP NEGERI 18 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>MUHAMAD ASFAR R</td>
+                    <td>A23119014</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 1 TANANTOVEA</td>
+                  </tr>
+                  <tr>
+                    <td>MUHAMMAD GUSRIADI</td>
+                    <td>A23119065</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI No.1 PESAKU</td>
+                  </tr>
+                  <tr>
+                    <td>MUH. NADHIM</td>
+                    <td>A23119033</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 10 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>MUH RAIS</td>
+                    <td>A23119005</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD KECIL WANA</td>
+                  </tr>
+                  <tr>
+                    <td>MUIZZAH ALFITRIAH</td>
+                    <td>A40119060</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 2 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>MUSLIMAH</td>
+                    <td>A23119120</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD KARYA THAIYYIBAH BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>MUTMAINA</td>
+                    <td>A40119075</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI PARANGGI</td>
+                  </tr>
+                  <tr>
+                    <td>NADIA MASTUR</td>
+                    <td>A40119019</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 5 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>NAURAH DESTRI YULANDARI</td>
+                    <td>A12119025</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 1 TANANTOVEA</td>
+                  </tr>
+                  <tr>
+                    <td>NELDAYANTI TANGKUDE</td>
+                    <td>A40119017</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES 2 BALUASE</td>
+                  </tr>
+                  <tr>
+                    <td>NI GUSTI AYU PUTU SINTYA DEWI</td>
+                    <td>A11119018</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD NEGERI PARANGGI</td>
+                  </tr>
+                  <tr>
+                    <td>NI KADEK SIKA DEVANI</td>
+                    <td>A40119031</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDIT BINA ANAK BANGSA</td>
+                  </tr>
+                  <tr>
+                    <td>NI LUH PUTU EGHA SELSIANI</td>
+                    <td>A40119040</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI PARANGGI</td>
+                  </tr>
+                  <tr>
+                    <td>NI MADE AYU ASTUTI</td>
+                    <td>A25119019</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD INPRES 6 WATUOGE</td>
+                  </tr>
+                  <tr>
+                    <td>NINING</td>
+                    <td>A11119079</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD INPRES 12 BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>NI PUTU INDAH TIARA DEWI</td>
+                    <td>A12119009</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 1 PAMONA BARAT</td>
+                  </tr>
+                  <tr>
+                    <td>NISWANA</td>
+                    <td>A23119121</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD SMP NEGERI SATU ATAP BARATI</td>
+                  </tr>
+                  <tr>
+                    <td>NI WAYAN MENIASIH</td>
+                    <td>A40119043</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI 046 ARABUA</td>
+                  </tr>
+                  <tr>
+                    <td>NOVIA WULAN LARASATI</td>
+                    <td>A31119022</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SDN OGOMEGANGDAERAH KHUSUS</td>
+                  </tr>
+                  <tr>
+                    <td>NOVITA SARI</td>
+                    <td>A35119020</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SMPN 3 Trumon Timur</td>
+                  </tr>
+                  <tr>
+                    <td>Nur Afia</td>
+                    <td>A12119031</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD INPRES 3 TONDO</td>
+                  </tr>
+                  <tr>
+                    <td>NUR AFIFA</td>
+                    <td>A40119148</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI No.1 PESAKU</td>
+                  </tr>
+                  <tr>
+                    <td>NURAFNI AMELIA</td>
+                    <td>A24119077</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 1 TANANTOVEA</td>
+                  </tr>
+                  <tr>
+                    <td>NUR AMINA</td>
+                    <td>A31119007</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SDIT BINA ANAK BANGSA</td>
+                  </tr>
+                  <tr>
+                    <td>NUR ANISA DIONGAN</td>
+                    <td>A12119195</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SDN 28 BALAESANG</td>
+                  </tr>
+                  <tr>
+                    <td>NURFIRAYANI . H</td>
+                    <td>A31119084</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD NEGERI PARANGGI</td>
+                  </tr>
+                  <tr>
+                    <td>NURHALIZAH</td>
+                    <td>A23119017</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SDN 18 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>NUR HAYA</td>
+                    <td>A32119058</td>
+                    <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
+                    <td>SMP NEGERI 11 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>NUR HIDAYAH</td>
+                    <td>A25119130</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SDN 38 KELINGKAU</td>
+                  </tr>
+                  <tr>
+                    <td>NURHIKMA BUKUDA</td>
+                    <td>A35119047</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SMP NEGERI 1 PAMONA TIMUR</td>
+                  </tr>
+                  <tr>
+                    <td>NURMADIAN</td>
+                    <td>A12119066</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD NEGERI 046 ARABUA</td>
+                  </tr>
+                  <tr>
+                    <td>NURMIN</td>
+                    <td>A50119074</td>
+                    <td>Bimbingan Dan Konseling</td>
+                    <td>SD SMP NEGERI SATU ATAP BARATI</td>
+                  </tr>
+                  <tr>
+                    <td>NUR RAHMAH DM</td>
+                    <td>A40119190</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>NUR SAPNA DAMAYANTI</td>
+                    <td>A25119008</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 1 SINDUE</td>
+                  </tr>
+                  <tr>
+                    <td>NUR SASKIA ULFA</td>
+                    <td>A40119005</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI 14 POSO</td>
+                  </tr>
+                  <tr>
+                    <td>NURUL FADILAH A. DARMANSYAH</td>
+                    <td>A25119026</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD INPRES BINANGGA</td>
+                  </tr>
+                  <tr>
+                    <td>NURUL FADILAH S</td>
+                    <td>A50119056</td>
+                    <td>Bimbingan Dan Konseling</td>
+                    <td>SMP NEGERI 25 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>Nurul Magnisa</td>
+                    <td>A12119038</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD INPRES 3 TONDO</td>
+                  </tr>
+                  <tr>
+                    <td>NURUL PRATIWI</td>
+                    <td>A25119049</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 25 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>NURUL ZAFITRI JUNA</td>
+                    <td>A25119086</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 17 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>NURVIANI ALAMANDA</td>
+                    <td>A23119042</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD BALA KESELAMATAN KANTEWU</td>
+                  </tr>
+                  <tr>
+                    <td>NUZUL KADRI</td>
+                    <td>A24119052</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 1 PAMONA BARAT</td>
+                  </tr>
+                  <tr>
+                    <td>OLGA OMPI TRISJAYATIKA TOSIMA</td>
+                    <td>A11119021</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD NEGERI SINTUWULEMBA</td>
+                  </tr>
+                  <tr>
+                    <td>Olpi Jenli K</td>
+                    <td>A23118087</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP BALA KESELAMATAN BALAMOA</td>
+                  </tr>
+                  <tr>
+                    <td>PAULINA FABIOLA SUNSUMI</td>
+                    <td>A23118047</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 18 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>PEBRIANTI</td>
+                    <td>A11119097</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 3 SOJOL</td>
+                  </tr>
+                  <tr>
+                    <td>PUJA ASTI ANANTA</td>
+                    <td>A23119098</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP BALA KESELAMATAN MARANATHA</td>
+                  </tr>
+                  <tr>
+                    <td>PUTRI DIAN RAMADHAN</td>
+                    <td>A24119075</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 3 SOJOL</td>
+                  </tr>
+                  <tr>
+                    <td>PUTRI HANDAYANI</td>
+                    <td>A12119181</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD NEGERI LAMTEH</td>
+                  </tr>
+                  <tr>
+                    <td>PUTRI NUR EKA AYU SALSA DILA</td>
+                    <td>A12119156</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD ISLAM IQRA PETOBO</td>
+                  </tr>
+                  <tr>
+                    <td>RAHMA MINA</td>
+                    <td>A23119002</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SDN 8 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>RAHMA SARI</td>
+                    <td>A23119064</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI NO. 211 INPRES CAMPAGAYA</td>
+                  </tr>
+                  <tr>
+                    <td>RAHMIA</td>
+                    <td>A23118027</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 18 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>RAHMI HANDAYANI</td>
+                    <td>A25119103</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD KECIL WANA</td>
+                  </tr>
+                  <tr>
+                    <td>RAIYAN</td>
+                    <td>A23119114</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD KECIL OLOBARU</td>
+                  </tr>
+                  <tr>
+                    <td>RAMLAH</td>
+                    <td>A24119069</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD ISLAM IQRA PETOBO</td>
+                  </tr>
+                  <tr>
+                    <td>RANI AFRIANTI</td>
+                    <td>A24119081</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP NEGERI 11 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>REGINA DWI MAHARANI</td>
+                    <td>A40119030</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES BALUMPEWA</td>
+                  </tr>
+                  <tr>
+                    <td>REGITA CAHYANI</td>
+                    <td>A25119085</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD NEGERI 12 LIMRAN</td>
+                  </tr>
+                  <tr>
+                    <td>RENI ROFIKA</td>
+                    <td>A23119057</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD SMP NEGERI SATU ATAP BARATI</td>
+                  </tr>
+                  <tr>
+                    <td>RICK CLOVE PODUNG</td>
+                    <td>A23119048</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES BALUMPEWA</td>
+                  </tr>
+                  <tr>
+                    <td>RISMAWATI</td>
+                    <td>A25119051</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 1 POSO PESISIR SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>RISWAN</td>
+                    <td>A11119112</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD KECIL WANA</td>
+                  </tr>
+                  <tr>
+                    <td>RIZKA SAFITRI</td>
+                    <td>A12119204</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 1 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>RIZKI RESTIKA</td>
+                    <td>A23119052</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 9 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>SAFIRAH</td>
+                    <td>A23119040</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP BALA KESELAMATAN BALAMOA</td>
+                  </tr>
+                  <tr>
+                    <td>SANDRA PUTRI WAHYUNISA</td>
+                    <td>A40119141</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD BALA KESELAMATAN PUROO</td>
+                  </tr>
+                  <tr>
+                    <td>SARI</td>
+                    <td>A40119007</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD BALA KESELAMATAN PUROO</td>
+                  </tr>
+                  <tr>
+                    <td>Saskia Salsa Billa</td>
+                    <td>A40119016</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD INPRES 2 BALUASE</td>
+                  </tr>
+                  <tr>
+                    <td>SELY ENJELY</td>
+                    <td>A31119009</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SMP NEGERI 1 SINDUE TOBATA</td>
+                  </tr>
+                  <tr>
+                    <td>SHAFIRA</td>
+                    <td>A24119084</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SMP KRISTEN GKST 3 TENTENA</td>
+                  </tr>
+                  <tr>
+                    <td>SHINTA MASITA</td>
+                    <td>A25119116</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 3 BALAESANG</td>
+                  </tr>
+                  <tr>
+                    <td>SILFANDA OKTAVIANDA</td>
+                    <td>A40119092</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI 2 TINGGEDE</td>
+                  </tr>
+                  <tr>
+                    <td>SILVA SISKA JUNIANTI</td>
+                    <td>A40119088</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 28 BALAESANG</td>
+                  </tr>
+                  <tr>
+                    <td>Sindi Velesia Tukaedja</td>
+                    <td>A25119083</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
+                  </tr>
+                  <tr>
+                    <td>SITI FADLIAH</td>
+                    <td>A40119002</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN OGOMEGANGDAERAH KHUSUS</td>
+                  </tr>
+                  <tr>
+                    <td>SITI FATMAWATI</td>
+                    <td>A41119002</td>
+                    <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
+                    <td>SD NEGERI 11 KAYUMABOKO</td>
+                  </tr>
+                  <tr>
+                    <td>SITI MAWADDAH</td>
+                    <td>A11119080</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD INPRES 2 BALUASE</td>
+                  </tr>
+                  <tr>
+                    <td>SITI MUSDHALIFA</td>
+                    <td>A23118059</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 2 LABUAN</td>
+                  </tr>
+                  <tr>
+                    <td>SITI NUR AFIFAH SABEHA</td>
+                    <td>A11119084</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 1 POSO PESISIR SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>SITI NURAINUNNISA FAKHRIYAH SHABIT HALIK</td>
+                    <td>A23118037</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD NEGERI 12 LIMRAN</td>
+                  </tr>
+                  <tr>
+                    <td>SITI NURINTAN</td>
+                    <td>A12119158</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SDN 28 BALAESANG</td>
+                  </tr>
+                  <tr>
+                    <td>SITI SASMITA</td>
+                    <td>A31119043</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD NEGERI 2 TINGGEDE</td>
+                  </tr>
+                  <tr>
+                    <td>SITI ZULFA HIDAYANTI</td>
+                    <td>A31119059</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD INPRES 3 TONDO</td>
+                  </tr>
+                  <tr>
+                    <td>SITTI NURAINA</td>
+                    <td>A31119011</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SD NEGERI PULIAS PULAU</td>
+                  </tr>
+                  <tr>
+                    <td>STENLY MEWALILI</td>
+                    <td>A42118079</td>
+                    <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
+                    <td>SMP NEGERI 3 LAGE</td>
+                  </tr>
+                  <tr>
+                    <td>STEVIN TANCUKO</td>
+                    <td>A40119055</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD NEGERI SINTUWULEMBA</td>
+                  </tr>
+                  <tr>
+                    <td>SUCI SUBRIANI</td>
+                    <td>A12119208</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SD NEGERI 11 KAYUMABOKO</td>
+                  </tr>
+                  <tr>
+                    <td>SUKMAWATI</td>
+                    <td>A25119102</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP BALA KESELAMATAN KALAWARA</td>
+                  </tr>
+                  <tr>
+                    <td>SULAEHA F. TALAPIU</td>
+                    <td>A11119085</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SMP NEGERI 17 SIGI</td>
+                  </tr>
+                  <tr>
+                    <td>SULPIANA</td>
+                    <td>A25119024</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 1 BUNGKU PESISIR</td>
+                  </tr>
+                  <tr>
+                    <td>SUMARNI</td>
+                    <td>A25118022</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SD NEGERI 75 KAYU TANNING</td>
+                  </tr>
+                  <tr>
+                    <td>Susi Nurhayati</td>
+                    <td>A25119066</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP BALA KESELAMATAN KALAWARA</td>
+                  </tr>
+                  <tr>
+                    <td>TRISYE TRISNAWATI</td>
+                    <td>A35119048</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD NEGERI 16 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>TRI UNISA</td>
+                    <td>A12119140</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SDN 8 BANAWA</td>
+                  </tr>
+                  <tr>
+                    <td>VERLIS TOBUTE</td>
+                    <td>A32119091</td>
+                    <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
+                    <td>SD INPRES 9 BAMBA</td>
+                  </tr>
+                  <tr>
+                    <td>VERONICA INDRIYANI</td>
+                    <td>A25119096</td>
+                    <td>Pendidikan Kimia</td>
+                    <td>SMP NEGERI 3 PAMONA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>VIVI SELVIANA</td>
+                    <td>A50119072</td>
+                    <td>Bimbingan Dan Konseling</td>
+                    <td>SD ISLAM TERPADU IMAM MUSLIM</td>
+                  </tr>
+                  <tr>
+                    <td>WAHDANIA RAHMA</td>
+                    <td>A40119034</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 5 SINDUE TOMBUSABORA</td>
+                  </tr>
+                  <tr>
+                    <td>WAHDINA</td>
+                    <td>A31119024</td>
+                    <td>Pendidikan Sejarah</td>
+                    <td>SMP NEGERI 2 LABUAN</td>
+                  </tr>
+                  <tr>
+                    <td>WANDA NUR SIYAMI</td>
+                    <td>A23119012</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD INPRES 6 WATUOGE</td>
+                  </tr>
+                  <tr>
+                    <td>WIDYA ALVIONITA</td>
+                    <td>A12119015</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SDN 2 BANAWA SELATAN</td>
+                  </tr>
+                  <tr>
+                    <td>WINDI GALUH KARTIKA</td>
+                    <td>A24119040</td>
+                    <td>Pendidikan Fisika</td>
+                    <td>SD INPRES 12 BAIYA</td>
+                  </tr>
+                  <tr>
+                    <td>WIWIT WARDHANI</td>
+                    <td>A12119188</td>
+                    <td>Pendidikan Bahasa Inggris</td>
+                    <td>SMP NEGERI 3 POSO KOTA UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>YORISTA</td>
+                    <td>A35119090</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD BALA KESELAMATAN RANTEWULU</td>
+                  </tr>
+                  <tr>
+                    <td>YUANA STESYA PALUNSU</td>
+                    <td>A40119091</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SD GKST PEURA</td>
+                  </tr>
+                  <tr>
+                    <td>YUNIARSIH</td>
+                    <td>A35119093</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD INPRES LAWUA I</td>
+                  </tr>
+                  <tr>
+                    <td>YUNIKA PRASTIKA</td>
+                    <td>A11119026</td>
+                    <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
+                    <td>SD KECIL OLOBARU</td>
+                  </tr>
+                  <tr>
+                    <td>YUSUF DHARMA MU&#39;MININ</td>
+                    <td>A23119140</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SMP NEGERI 1 LORE UTARA</td>
+                  </tr>
+                  <tr>
+                    <td>YUYUN ELFRINA MANJARARA</td>
+                    <td>A40119077</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN BUYUNGKATEDO</td>
+                  </tr>
+                  <tr>
+                    <td>YUYUN SELASTI</td>
+                    <td>A23118009</td>
+                    <td>Pendidikan Matematika</td>
+                    <td>SD KARYA THAYYIBAH MAMBORO</td>
+                  </tr>
+                  <tr>
+                    <td>ZAENUDIN ALI</td>
+                    <td>A35119026</td>
+                    <td>Pendidikan Geografi</td>
+                    <td>SD NEGERI 17 PALU</td>
+                  </tr>
+                  <tr>
+                    <td>ZALFA&#39; ZAHIRAH</td>
+                    <td>A40119051</td>
+                    <td>Pendidikan Guru Sekolah Dasar</td>
+                    <td>SDN 5 SINDUE TOMBUSABORA</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <hr>
-            <!-- Tab content for Fakultas -->
-            <div class="tab-content" id="pills-tabContent">
-                <!-- FKIP -->
-                <div class="tab-pane fade show active" id="fkip" role="tabpanel">
-                    <table id="fkip-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                                <th>Sekolah</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ADITHA NUR RAHMA</td>
-                                <td>A24119068</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 3 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>ADITYA RAMADAN</td>
-                                <td>A42118004</td>
-                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
-                                <td>SMP NEGERI 1 TANANTOVEA</td>
-                            </tr>
-                            <tr>
-                                <td>ADRIANSAH I. GIASI</td>
-                                <td>A24119110</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 3 PAMONA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>AFRIADI</td>
-                                <td>A11119180</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD ISLAM TERPADU IMAM MUSLIM</td>
-                            </tr>
-                            <tr>
-                                <td>Ainun Mutmainnah</td>
-                                <td>A40119213</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 18 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>ALFINALIS MANTENDE</td>
-                                <td>A11119093</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 1 LORE UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>ALKHAF SHABAN</td>
-                                <td>A12118032</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SDN 2 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>ALMUHAIMIN</td>
-                                <td>A35119007</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD INPRES TOLOLE</td>
-                            </tr>
-                            <tr>
-                                <td>ANDI NURAFDHALIA</td>
-                                <td>A23119099</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 2 BUNGKU SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>ANDIRA RISFIANI</td>
-                                <td>A12119034</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP BALA KESELAMATAN BALAMOA</td>
-                            </tr>
-                            <tr>
-                                <td>ANDRIANI</td>
-                                <td>A23119089</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>ANGELA PRISKA WATI</td>
-                                <td>A24119034</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD INPRES 9 BAMBA</td>
-                            </tr>
-                            <tr>
-                                <td>ANIDYA CITRA MAYUNI</td>
-                                <td>A40119209</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
-                            </tr>
-                            <tr>
-                                <td>ANNISA REZEKI</td>
-                                <td>A24119124</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>ANSAR</td>
-                                <td>A40119076</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES 12 BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>ARI FERDIAN</td>
-                                <td>A40119014</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES BALUMPEWA</td>
-                            </tr>
-                            <tr>
-                                <td>ARINA OKTAVIANI</td>
-                                <td>A23119123</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES 6 WATUOGE</td>
-                            </tr>
-                            <tr>
-                                <td>ARINDA</td>
-                                <td>A12119026</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD ISLAM ALHIDAYAH BESUSU</td>
-                            </tr>
-                            <tr>
-                                <td>ARRUM PUSPASARI</td>
-                                <td>A11119055</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD NEGERI 12 LIMRAN</td>
-                            </tr>
-                            <tr>
-                                <td>ASNAH</td>
-                                <td>A32119023</td>
-                                <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
-                                <td>SD NEGERI 16 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>ASWINDA</td>
-                                <td>A40119053</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD BALA KESELAMATAN PUROO</td>
-                            </tr>
-                            <tr>
-                                <td>BACHTIAR</td>
-                                <td>A24119031</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SDN 18 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>BULAN PURNAMA INDAH</td>
-                                <td>A24119011</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 3 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>CAHAYATUL HUSNA</td>
-                                <td>A11119095</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 1 LORE UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>CHRISTY IMELD CORNELIA MODJEDJE</td>
-                                <td>A11119008</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD GKST PEURA</td>
-                            </tr>
-                            <tr>
-                                <td>Dealy Cintia Wulur</td>
-                                <td>A42119153</td>
-                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
-                                <td>SD ISLAM ALHIDAYAH BESUSU</td>
-                            </tr>
-                            <tr>
-                                <td>DELVIANI PUTRI</td>
-                                <td>A31119071</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SMP NEGERI 3 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>DENADHA NATALIYA GENTE</td>
-                                <td>A40119069</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD GKST PEURA</td>
-                            </tr>
-                            <tr>
-                                <td>DENNISA MBATONO</td>
-                                <td>A40119054</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD GKST PEURA</td>
-                            </tr>
-                            <tr>
-                                <td>DEWI YULIANA SUMBUNG</td>
-                                <td>A24119051</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP BALA KESELAMATAN BALAMOA</td>
-                            </tr>
-                            <tr>
-                                <td>DIAN RISKITA A.R PARINU</td>
-                                <td>A40119041</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD ISLAM TERPADU IMAM MUSLIM</td>
-                            </tr>
-                            <tr>
-                                <td>DIAN SAFITRI</td>
-                                <td>A11119153</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD N PASIREURIH 1</td>
-                            </tr>
-                            <tr>
-                                <td>DIAN WAHYUNI</td>
-                                <td>A40119184</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES LAWUA I</td>
-                            </tr>
-                            <tr>
-                                <td>DINIL HAERANI</td>
-                                <td>A25119001</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD KECIL WANA</td>
-                            </tr>
-                            <tr>
-                                <td>DITA MARLINA</td>
-                                <td>A35119084</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SMP NEGERI 1 TANANTOVEA</td>
-                            </tr>
-                            <tr>
-                                <td>DITA SAFITRI</td>
-                                <td>A25119032</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD ISLAM ALHIDAYAH BESUSU</td>
-                            </tr>
-                            <tr>
-                                <td>DUWITA GONI</td>
-                                <td>A40119125</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES BINANGGA</td>
-                            </tr>
-                            <tr>
-                                <td>EKA SAFITRI LAILLATUL JANAH</td>
-                                <td>A23119066</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP BALA KESELAMATAN MARANATHA</td>
-                            </tr>
-                            <tr>
-                                <td>ELFIRA RUSLI</td>
-                                <td>A40119208</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 2 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>ELISSANDRA BANGE</td>
-                                <td>A25119101</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 10 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>ELISSHA HERIYANTI</td>
-                                <td>A25119022</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 1 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>ELMA RAHMAYANI</td>
-                                <td>A23119018</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES BINANGGA</td>
-                            </tr>
-                            <tr>
-                                <td>ELSA PEKIRI</td>
-                                <td>A11119115</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD NEGERI 14 POSO</td>
-                            </tr>
-                            <tr>
-                                <td>ESTER LAPALESA</td>
-                                <td>A23119084</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 1 PAMONA TIMUR</td>
-                            </tr>
-                            <tr>
-                                <td>FADEL MUHAMAD</td>
-                                <td>A11119160</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD NEGERI 2 TINGGEDE</td>
-                            </tr>
-                            <tr>
-                                <td>FAHMI ARIFIN</td>
-                                <td>A24119049</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD KARYA THAYYIBAH MAMBORO</td>
-                            </tr>
-                            <tr>
-                                <td>FAISAL</td>
-                                <td>a23118061</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 1 SINDUE TOBATA</td>
-                            </tr>
-                            <tr>
-                                <td>FANDA RIYANTI</td>
-                                <td>A11119158</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SDN OGOMEGANGDAERAH KHUSUS</td>
-                            </tr>
-                            <tr>
-                                <td>FARADIBA ISYUDIN BAID</td>
-                                <td>A31118132</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SDN 8 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>FARA LUTFIAH</td>
-                                <td>A41119024</td>
-                                <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
-                                <td>SD INPRES 2 BALUASE</td>
-                            </tr>
-                            <tr>
-                                <td>FIKRIAWAN LAPASERE</td>
-                                <td>A42119051</td>
-                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
-                                <td>SD KECIL WANA</td>
-                            </tr>
-                            <tr>
-                                <td>FIRDAYANI</td>
-                                <td>A12119014</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 1 POSO PESISIR</td>
-                            </tr>
-                            <tr>
-                                <td>FITRIA NINGSI</td>
-                                <td>A23118025</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES 12 BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>FITRIA WATI</td>
-                                <td>A24119136</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SDIT BINA ANAK BANGSA</td>
-                            </tr>
-                            <tr>
-                                <td>FITRI RAMADANI SYAMSUL</td>
-                                <td>A11119038</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 1 BUNGKU PESISIR</td>
-                            </tr>
-                            <tr>
-                                <td>FRISKA</td>
-                                <td>A23119110</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES 2 BALUASE</td>
-                            </tr>
-                            <tr>
-                                <td>GABRIELA THERESIA MAURU</td>
-                                <td>A11119014</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SDN BUYUNGKATEDO</td>
-                            </tr>
-                            <tr>
-                                <td>GALU PARWATI</td>
-                                <td>A23119010</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 3 POSO KOTA UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>HAERURRASIKIN</td>
-                                <td>A40119206</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 8 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>HANIFAH SUSANTI</td>
-                                <td>A35119082</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SDN 10 TANJUNG GUNUNG</td>
-                            </tr>
-                            <tr>
-                                <td>HARMILA</td>
-                                <td>A40119011</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES 12 BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>HESTI FEBRIANA</td>
-                                <td>A11119056</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SDN 5 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>HIRAWATI</td>
-                                <td>A23118021</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI 17 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>HUSNUL KHATIMAH</td>
-                                <td>A25119034</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 10 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>ILAWATI</td>
-                                <td>A25119036</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 1 SINDUE</td>
-                            </tr>
-                            <tr>
-                                <td>I LUH RESTINI</td>
-                                <td>A23119006</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI 17 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>I MADE ARYA WEDA</td>
-                                <td>A24119027</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 1 SOJOL UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>IMAM MUHAIMIN A. ISOL</td>
-                                <td>A31119016</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SMP BALA KESELAMATAN KALAWARA</td>
-                            </tr>
-                            <tr>
-                                <td>I PUTU PASEK GUNAWAN</td>
-                                <td>A35119022</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SDN BUYUNGKATEDO</td>
-                            </tr>
-                            <tr>
-                                <td>ISMA DEWANTI</td>
-                                <td>A25119052</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD NEGERI 12 LIMRAN</td>
-                            </tr>
-                            <tr>
-                                <td>JORGI SAPUTRA</td>
-                                <td>A31119023</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD NEGERI 16 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>JUAN DWI PRASETYO PAEMBA</td>
-                                <td>A24119042</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 1 PAMONA TIMUR</td>
-                            </tr>
-                            <tr>
-                                <td>JUSMAN</td>
-                                <td>A24119130</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 1 BUNGKU PESISIR</td>
-                            </tr>
-                            <tr>
-                                <td>KARMILA</td>
-                                <td>A40119001</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>KOMANG YULVITA TUMPU</td>
-                                <td>A40119068</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN BUYUNGKATEDO</td>
-                            </tr>
-                            <tr>
-                                <td>KRISTAMIALIN WALILI</td>
-                                <td>A35119079</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD BALA KESELAMATAN KANTEWU</td>
-                            </tr>
-                            <tr>
-                                <td>KRISTHA STEFINA MAMBOYU</td>
-                                <td>A31119055</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD KECIL OLOBARU</td>
-                            </tr>
-                            <tr>
-                                <td>LATIFAH ENDANG WULANDARI</td>
-                                <td>A12119199</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 9 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>LISA RAUDATUL AULIA</td>
-                                <td>A31119031</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD NEGERI 16 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>LISSYA DARLINT OKTAVIA LIE RABETA</td>
-                                <td>A25119037</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD KARYA THAYYIBAH MAMBORO</td>
-                            </tr>
-                            <tr>
-                                <td>MARLINA NURSUSANTI</td>
-                                <td>A24119043</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD BALA KESELAMATAN KANTEWU</td>
-                            </tr>
-                            <tr>
-                                <td>MARWA DARMIN</td>
-                                <td>A23119094</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI NO. 211 INPRES CAMPAGAYA</td>
-                            </tr>
-                            <tr>
-                                <td>MIFTAHUL JANNAH</td>
-                                <td>A12119197</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD NEGERI 20 DOMPU</td>
-                            </tr>
-                            <tr>
-                                <td>MIFTAHUL JANNAH</td>
-                                <td>A12119012</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD NEGERI 20 DOMPU</td>
-                            </tr>
-                            <tr>
-                                <td>Miftahul Riska</td>
-                                <td>A41119035</td>
-                                <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
-                                <td>SD INPRES BALUMPEWA</td>
-                            </tr>
-                            <tr>
-                                <td>MILYANI M</td>
-                                <td>A23119092</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 3 BALAESANG</td>
-                            </tr>
-                            <tr>
-                                <td>MISNAWATI</td>
-                                <td>A24119026</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
-                            </tr>
-                            <tr>
-                                <td>MOH AFANDI</td>
-                                <td>A42119032</td>
-                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
-                                <td>SDN 2 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>MOH IBNU</td>
-                                <td>A35119003</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>MOH. RIFAL SALAMSES</td>
-                                <td>A12119028</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 2 BUNGKU SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>MOH. RIZKI WAHYU PUTRA</td>
-                                <td>A31119028</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SMP NEGERI 18 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>MUHAMAD ASFAR R</td>
-                                <td>A23119014</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 1 TANANTOVEA</td>
-                            </tr>
-                            <tr>
-                                <td>MUHAMMAD GUSRIADI</td>
-                                <td>A23119065</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI No.1 PESAKU</td>
-                            </tr>
-                            <tr>
-                                <td>MUH. NADHIM</td>
-                                <td>A23119033</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 10 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>MUH RAIS</td>
-                                <td>A23119005</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD KECIL WANA</td>
-                            </tr>
-                            <tr>
-                                <td>MUIZZAH ALFITRIAH</td>
-                                <td>A40119060</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 2 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>MUSLIMAH</td>
-                                <td>A23119120</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD KARYA THAIYYIBAH BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>MUTMAINA</td>
-                                <td>A40119075</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI PARANGGI</td>
-                            </tr>
-                            <tr>
-                                <td>NADIA MASTUR</td>
-                                <td>A40119019</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 5 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>NAURAH DESTRI YULANDARI</td>
-                                <td>A12119025</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 1 TANANTOVEA</td>
-                            </tr>
-                            <tr>
-                                <td>NELDAYANTI TANGKUDE</td>
-                                <td>A40119017</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES 2 BALUASE</td>
-                            </tr>
-                            <tr>
-                                <td>NI GUSTI AYU PUTU SINTYA DEWI</td>
-                                <td>A11119018</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD NEGERI PARANGGI</td>
-                            </tr>
-                            <tr>
-                                <td>NI KADEK SIKA DEVANI</td>
-                                <td>A40119031</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDIT BINA ANAK BANGSA</td>
-                            </tr>
-                            <tr>
-                                <td>NI LUH PUTU EGHA SELSIANI</td>
-                                <td>A40119040</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI PARANGGI</td>
-                            </tr>
-                            <tr>
-                                <td>NI MADE AYU ASTUTI</td>
-                                <td>A25119019</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD INPRES 6 WATUOGE</td>
-                            </tr>
-                            <tr>
-                                <td>NINING</td>
-                                <td>A11119079</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD INPRES 12 BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>NI PUTU INDAH TIARA DEWI</td>
-                                <td>A12119009</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 1 PAMONA BARAT</td>
-                            </tr>
-                            <tr>
-                                <td>NISWANA</td>
-                                <td>A23119121</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD SMP NEGERI SATU ATAP BARATI</td>
-                            </tr>
-                            <tr>
-                                <td>NI WAYAN MENIASIH</td>
-                                <td>A40119043</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI 046 ARABUA</td>
-                            </tr>
-                            <tr>
-                                <td>NOVIA WULAN LARASATI</td>
-                                <td>A31119022</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SDN OGOMEGANGDAERAH KHUSUS</td>
-                            </tr>
-                            <tr>
-                                <td>NOVITA SARI</td>
-                                <td>A35119020</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SMPN 3 Trumon Timur</td>
-                            </tr>
-                            <tr>
-                                <td>Nur Afia</td>
-                                <td>A12119031</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD INPRES 3 TONDO</td>
-                            </tr>
-                            <tr>
-                                <td>NUR AFIFA</td>
-                                <td>A40119148</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI No.1 PESAKU</td>
-                            </tr>
-                            <tr>
-                                <td>NURAFNI AMELIA</td>
-                                <td>A24119077</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 1 TANANTOVEA</td>
-                            </tr>
-                            <tr>
-                                <td>NUR AMINA</td>
-                                <td>A31119007</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SDIT BINA ANAK BANGSA</td>
-                            </tr>
-                            <tr>
-                                <td>NUR ANISA DIONGAN</td>
-                                <td>A12119195</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SDN 28 BALAESANG</td>
-                            </tr>
-                            <tr>
-                                <td>NURFIRAYANI . H</td>
-                                <td>A31119084</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD NEGERI PARANGGI</td>
-                            </tr>
-                            <tr>
-                                <td>NURHALIZAH</td>
-                                <td>A23119017</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SDN 18 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>NUR HAYA</td>
-                                <td>A32119058</td>
-                                <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
-                                <td>SMP NEGERI 11 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>NUR HIDAYAH</td>
-                                <td>A25119130</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SDN 38 KELINGKAU</td>
-                            </tr>
-                            <tr>
-                                <td>NURHIKMA BUKUDA</td>
-                                <td>A35119047</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SMP NEGERI 1 PAMONA TIMUR</td>
-                            </tr>
-                            <tr>
-                                <td>NURMADIAN</td>
-                                <td>A12119066</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD NEGERI 046 ARABUA</td>
-                            </tr>
-                            <tr>
-                                <td>NURMIN</td>
-                                <td>A50119074</td>
-                                <td>Bimbingan Dan Konseling</td>
-                                <td>SD SMP NEGERI SATU ATAP BARATI</td>
-                            </tr>
-                            <tr>
-                                <td>NUR RAHMAH DM</td>
-                                <td>A40119190</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>NUR SAPNA DAMAYANTI</td>
-                                <td>A25119008</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 1 SINDUE</td>
-                            </tr>
-                            <tr>
-                                <td>NUR SASKIA ULFA</td>
-                                <td>A40119005</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI 14 POSO</td>
-                            </tr>
-                            <tr>
-                                <td>NURUL FADILAH A. DARMANSYAH</td>
-                                <td>A25119026</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD INPRES BINANGGA</td>
-                            </tr>
-                            <tr>
-                                <td>NURUL FADILAH S</td>
-                                <td>A50119056</td>
-                                <td>Bimbingan Dan Konseling</td>
-                                <td>SMP NEGERI 25 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>Nurul Magnisa</td>
-                                <td>A12119038</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD INPRES 3 TONDO</td>
-                            </tr>
-                            <tr>
-                                <td>NURUL PRATIWI</td>
-                                <td>A25119049</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 25 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>NURUL ZAFITRI JUNA</td>
-                                <td>A25119086</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 17 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>NURVIANI ALAMANDA</td>
-                                <td>A23119042</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD BALA KESELAMATAN KANTEWU</td>
-                            </tr>
-                            <tr>
-                                <td>NUZUL KADRI</td>
-                                <td>A24119052</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 1 PAMONA BARAT</td>
-                            </tr>
-                            <tr>
-                                <td>OLGA OMPI TRISJAYATIKA TOSIMA</td>
-                                <td>A11119021</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD NEGERI SINTUWULEMBA</td>
-                            </tr>
-                            <tr>
-                                <td>Olpi Jenli K</td>
-                                <td>A23118087</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP BALA KESELAMATAN BALAMOA</td>
-                            </tr>
-                            <tr>
-                                <td>PAULINA FABIOLA SUNSUMI</td>
-                                <td>A23118047</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 18 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>PEBRIANTI</td>
-                                <td>A11119097</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 3 SOJOL</td>
-                            </tr>
-                            <tr>
-                                <td>PUJA ASTI ANANTA</td>
-                                <td>A23119098</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP BALA KESELAMATAN MARANATHA</td>
-                            </tr>
-                            <tr>
-                                <td>PUTRI DIAN RAMADHAN</td>
-                                <td>A24119075</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 3 SOJOL</td>
-                            </tr>
-                            <tr>
-                                <td>PUTRI HANDAYANI</td>
-                                <td>A12119181</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD NEGERI LAMTEH</td>
-                            </tr>
-                            <tr>
-                                <td>PUTRI NUR EKA AYU SALSA DILA</td>
-                                <td>A12119156</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD ISLAM IQRA PETOBO</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMA MINA</td>
-                                <td>A23119002</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SDN 8 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMA SARI</td>
-                                <td>A23119064</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI NO. 211 INPRES CAMPAGAYA</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMIA</td>
-                                <td>A23118027</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 18 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMI HANDAYANI</td>
-                                <td>A25119103</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD KECIL WANA</td>
-                            </tr>
-                            <tr>
-                                <td>RAIYAN</td>
-                                <td>A23119114</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD KECIL OLOBARU</td>
-                            </tr>
-                            <tr>
-                                <td>RAMLAH</td>
-                                <td>A24119069</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD ISLAM IQRA PETOBO</td>
-                            </tr>
-                            <tr>
-                                <td>RANI AFRIANTI</td>
-                                <td>A24119081</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP NEGERI 11 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>REGINA DWI MAHARANI</td>
-                                <td>A40119030</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES BALUMPEWA</td>
-                            </tr>
-                            <tr>
-                                <td>REGITA CAHYANI</td>
-                                <td>A25119085</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD NEGERI 12 LIMRAN</td>
-                            </tr>
-                            <tr>
-                                <td>RENI ROFIKA</td>
-                                <td>A23119057</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD SMP NEGERI SATU ATAP BARATI</td>
-                            </tr>
-                            <tr>
-                                <td>RICK CLOVE PODUNG</td>
-                                <td>A23119048</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES BALUMPEWA</td>
-                            </tr>
-                            <tr>
-                                <td>RISMAWATI</td>
-                                <td>A25119051</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 1 POSO PESISIR SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>RISWAN</td>
-                                <td>A11119112</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD KECIL WANA</td>
-                            </tr>
-                            <tr>
-                                <td>RIZKA SAFITRI</td>
-                                <td>A12119204</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 1 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>RIZKI RESTIKA</td>
-                                <td>A23119052</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 9 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>SAFIRAH</td>
-                                <td>A23119040</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP BALA KESELAMATAN BALAMOA</td>
-                            </tr>
-                            <tr>
-                                <td>SANDRA PUTRI WAHYUNISA</td>
-                                <td>A40119141</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD BALA KESELAMATAN PUROO</td>
-                            </tr>
-                            <tr>
-                                <td>SARI</td>
-                                <td>A40119007</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD BALA KESELAMATAN PUROO</td>
-                            </tr>
-                            <tr>
-                                <td>Saskia Salsa Billa</td>
-                                <td>A40119016</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD INPRES 2 BALUASE</td>
-                            </tr>
-                            <tr>
-                                <td>SELY ENJELY</td>
-                                <td>A31119009</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SMP NEGERI 1 SINDUE TOBATA</td>
-                            </tr>
-                            <tr>
-                                <td>SHAFIRA</td>
-                                <td>A24119084</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SMP KRISTEN GKST 3 TENTENA</td>
-                            </tr>
-                            <tr>
-                                <td>SHINTA MASITA</td>
-                                <td>A25119116</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 3 BALAESANG</td>
-                            </tr>
-                            <tr>
-                                <td>SILFANDA OKTAVIANDA</td>
-                                <td>A40119092</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI 2 TINGGEDE</td>
-                            </tr>
-                            <tr>
-                                <td>SILVA SISKA JUNIANTI</td>
-                                <td>A40119088</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 28 BALAESANG</td>
-                            </tr>
-                            <tr>
-                                <td>Sindi Velesia Tukaedja</td>
-                                <td>A25119083</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD INPRES 1 KAYUMALUE PAJEKO</td>
-                            </tr>
-                            <tr>
-                                <td>SITI FADLIAH</td>
-                                <td>A40119002</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN OGOMEGANGDAERAH KHUSUS</td>
-                            </tr>
-                            <tr>
-                                <td>SITI FATMAWATI</td>
-                                <td>A41119002</td>
-                                <td>Pendidikan Guru Pendidikan Anak Usia Dini</td>
-                                <td>SD NEGERI 11 KAYUMABOKO</td>
-                            </tr>
-                            <tr>
-                                <td>SITI MAWADDAH</td>
-                                <td>A11119080</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD INPRES 2 BALUASE</td>
-                            </tr>
-                            <tr>
-                                <td>SITI MUSDHALIFA</td>
-                                <td>A23118059</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 2 LABUAN</td>
-                            </tr>
-                            <tr>
-                                <td>SITI NUR AFIFAH SABEHA</td>
-                                <td>A11119084</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 1 POSO PESISIR SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>SITI NURAINUNNISA FAKHRIYAH SHABIT HALIK</td>
-                                <td>A23118037</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD NEGERI 12 LIMRAN</td>
-                            </tr>
-                            <tr>
-                                <td>SITI NURINTAN</td>
-                                <td>A12119158</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SDN 28 BALAESANG</td>
-                            </tr>
-                            <tr>
-                                <td>SITI SASMITA</td>
-                                <td>A31119043</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD NEGERI 2 TINGGEDE</td>
-                            </tr>
-                            <tr>
-                                <td>SITI ZULFA HIDAYANTI</td>
-                                <td>A31119059</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD INPRES 3 TONDO</td>
-                            </tr>
-                            <tr>
-                                <td>SITTI NURAINA</td>
-                                <td>A31119011</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SD NEGERI PULIAS PULAU</td>
-                            </tr>
-                            <tr>
-                                <td>STENLY MEWALILI</td>
-                                <td>A42118079</td>
-                                <td>Pendidikan Jasmani, Kesehatan Dan Rekreasi</td>
-                                <td>SMP NEGERI 3 LAGE</td>
-                            </tr>
-                            <tr>
-                                <td>STEVIN TANCUKO</td>
-                                <td>A40119055</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD NEGERI SINTUWULEMBA</td>
-                            </tr>
-                            <tr>
-                                <td>SUCI SUBRIANI</td>
-                                <td>A12119208</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SD NEGERI 11 KAYUMABOKO</td>
-                            </tr>
-                            <tr>
-                                <td>SUKMAWATI</td>
-                                <td>A25119102</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP BALA KESELAMATAN KALAWARA</td>
-                            </tr>
-                            <tr>
-                                <td>SULAEHA F. TALAPIU</td>
-                                <td>A11119085</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SMP NEGERI 17 SIGI</td>
-                            </tr>
-                            <tr>
-                                <td>SULPIANA</td>
-                                <td>A25119024</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 1 BUNGKU PESISIR</td>
-                            </tr>
-                            <tr>
-                                <td>SUMARNI</td>
-                                <td>A25118022</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SD NEGERI 75 KAYU TANNING</td>
-                            </tr>
-                            <tr>
-                                <td>Susi Nurhayati</td>
-                                <td>A25119066</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP BALA KESELAMATAN KALAWARA</td>
-                            </tr>
-                            <tr>
-                                <td>TRISYE TRISNAWATI</td>
-                                <td>A35119048</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD NEGERI 16 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>TRI UNISA</td>
-                                <td>A12119140</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SDN 8 BANAWA</td>
-                            </tr>
-                            <tr>
-                                <td>VERLIS TOBUTE</td>
-                                <td>A32119091</td>
-                                <td>Pendidikan Pancasila Dan Kewarganegaraan</td>
-                                <td>SD INPRES 9 BAMBA</td>
-                            </tr>
-                            <tr>
-                                <td>VERONICA INDRIYANI</td>
-                                <td>A25119096</td>
-                                <td>Pendidikan Kimia</td>
-                                <td>SMP NEGERI 3 PAMONA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>VIVI SELVIANA</td>
-                                <td>A50119072</td>
-                                <td>Bimbingan Dan Konseling</td>
-                                <td>SD ISLAM TERPADU IMAM MUSLIM</td>
-                            </tr>
-                            <tr>
-                                <td>WAHDANIA RAHMA</td>
-                                <td>A40119034</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 5 SINDUE TOMBUSABORA</td>
-                            </tr>
-                            <tr>
-                                <td>WAHDINA</td>
-                                <td>A31119024</td>
-                                <td>Pendidikan Sejarah</td>
-                                <td>SMP NEGERI 2 LABUAN</td>
-                            </tr>
-                            <tr>
-                                <td>WANDA NUR SIYAMI</td>
-                                <td>A23119012</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD INPRES 6 WATUOGE</td>
-                            </tr>
-                            <tr>
-                                <td>WIDYA ALVIONITA</td>
-                                <td>A12119015</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SDN 2 BANAWA SELATAN</td>
-                            </tr>
-                            <tr>
-                                <td>WINDI GALUH KARTIKA</td>
-                                <td>A24119040</td>
-                                <td>Pendidikan Fisika</td>
-                                <td>SD INPRES 12 BAIYA</td>
-                            </tr>
-                            <tr>
-                                <td>WIWIT WARDHANI</td>
-                                <td>A12119188</td>
-                                <td>Pendidikan Bahasa Inggris</td>
-                                <td>SMP NEGERI 3 POSO KOTA UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>YORISTA</td>
-                                <td>A35119090</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD BALA KESELAMATAN RANTEWULU</td>
-                            </tr>
-                            <tr>
-                                <td>YUANA STESYA PALUNSU</td>
-                                <td>A40119091</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SD GKST PEURA</td>
-                            </tr>
-                            <tr>
-                                <td>YUNIARSIH</td>
-                                <td>A35119093</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD INPRES LAWUA I</td>
-                            </tr>
-                            <tr>
-                                <td>YUNIKA PRASTIKA</td>
-                                <td>A11119026</td>
-                                <td>Pendidikan Bahasa Dan Sastra Indonesia</td>
-                                <td>SD KECIL OLOBARU</td>
-                            </tr>
-                            <tr>
-                                <td>YUSUF DHARMA MU&#39;MININ</td>
-                                <td>A23119140</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SMP NEGERI 1 LORE UTARA</td>
-                            </tr>
-                            <tr>
-                                <td>YUYUN ELFRINA MANJARARA</td>
-                                <td>A40119077</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN BUYUNGKATEDO</td>
-                            </tr>
-                            <tr>
-                                <td>YUYUN SELASTI</td>
-                                <td>A23118009</td>
-                                <td>Pendidikan Matematika</td>
-                                <td>SD KARYA THAYYIBAH MAMBORO</td>
-                            </tr>
-                            <tr>
-                                <td>ZAENUDIN ALI</td>
-                                <td>A35119026</td>
-                                <td>Pendidikan Geografi</td>
-                                <td>SD NEGERI 17 PALU</td>
-                            </tr>
-                            <tr>
-                                <td>ZALFA&#39; ZAHIRAH</td>
-                                <td>A40119051</td>
-                                <td>Pendidikan Guru Sekolah Dasar</td>
-                                <td>SDN 5 SINDUE TOMBUSABORA</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-                <!-- FISIP -->
-                <div class="tab-pane fade" id="fisip" role="tabpanel">
-                    <table id="fisip-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Alfina Deva</td>
-                                <td>B20119004</td>
-                                <td>Sosiologi</td>
-                            </tr>
-                            <tr>
-                                <td>Nurfadillah</td>
-                                <td>B20119170</td>
-                                <td>Sosiologi</td>
-                            </tr>
-                            <tr>
-                                <td>Soviana</td>
-                                <td>B10119105</td>
-                                <td>Ilmu Administrasi Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Mohammad Julianto Koilo</td>
-                                <td>B40119040</td>
-                                <td>Ilmu Pemerintahan</td>
-                            </tr>
-                            <tr>
-                                <td>Vita Aulia</td>
-                                <td>B30119031</td>
-                                <td>Antropologi</td>
-                            </tr>
-                            <tr>
-                                <td>Rospita Simamora</td>
-                                <td>B20119011</td>
-                                <td>Sosiologi</td>
-                            </tr>
-                            <tr>
-                                <td>Moh . Awal Wahyudin</td>
-                                <td>B10119015</td>
-                                <td>Ilmu Administrasi Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Hamsah</td>
-                                <td>B20119006</td>
-                                <td>Sosiologi</td>
-                            </tr>
-                            <tr>
-                                <td>AYU WULANDARI</td>
-                                <td>B20119031</td>
-                                <td>Sosiologi</td>
-                            </tr>
-                            <tr>
-                                <td>Ali Akbar</td>
-                                <td>B10120176</td>
-                                <td>Ilmu Administrasi Publik</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FEB -->
-                <div class="tab-pane fade" id="feb" role="tabpanel">
-
-                    <table id="feb-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ASKIAH ULYAH</td>
-                                <td>C30020013</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Alda Alfiani</td>
-                                <td>C30020036</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>SUKMAWATI</td>
-                                <td>C10119140</td>
-                                <td>Ekonomi dan Pembangunan</td>
-                            </tr>
-                            <tr>
-                                <td>FRANSISKA PILIM</td>
-                                <td>C20119505</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Rachmat Arta Wijaya</td>
-                                <td>C30119131</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>I Gusti Rai Widnyani</td>
-                                <td>C30119083</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Wahyuni</td>
-                                <td>C30020001</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>FITRI SUSANTI</td>
-                                <td>C20119221</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>ANDI NURFITRIA</td>
-                                <td>C20119054</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>ASRIL</td>
-                                <td>C20119132</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>HIKMAWATI</td>
-                                <td>C20119102</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>USWATUN HASANAH</td>
-                                <td>C30119133</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>MOH ALGIFARI</td>
-                                <td>C20120291</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Octavia prasetiawati</td>
-                                <td>C30119158</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>ARDI WIJAYA</td>
-                                <td>C20119067</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Dini Lorenza</td>
-                                <td>C20119041</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Rahmadhyta saptari</td>
-                                <td>C30020014</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Sugandi</td>
-                                <td>C20119347</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Wiqra Safira</td>
-                                <td>C30119187</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Ni komang widiasih</td>
-                                <td>C20119367</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Naspa</td>
-                                <td>C30020035</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>INDA PRATISTA</td>
-                                <td>C30119110</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Ainul Yaqin</td>
-                                <td>C20120021</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>MUNAWARAH</td>
-                                <td>C30119096</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Hesti</td>
-                                <td>C30020007</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>AGNES PRATIWI TOWUA</td>
-                                <td>C30020028</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Audrey pramesrti pallawarukka</td>
-                                <td>C30020003</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>Ika Sulistyowati</td>
-                                <td>C20119032</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>SESILIA HESTI T. B.</td>
-                                <td>C30020004</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>AGITA RAHMA</td>
-                                <td>C20119024</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>GEBY SINTA</td>
-                                <td>C10119213</td>
-                                <td>Ekonomi dan Pembangunan</td>
-                            </tr>
-                            <tr>
-                                <td>Musdalifa Aprilia R. Ali</td>
-                                <td>C30119026</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Erlyn Kapele</td>
-                                <td>C20120243</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Rahmatia Nur</td>
-                                <td>C20120264</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>CONNY MINI NABUASA</td>
-                                <td>C20119583</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>MEISYE TRI MARIA</td>
-                                <td>C30020025</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>NUR SYAMI NOVIANTI</td>
-                                <td>C30020034</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>EGA TRIA ANGGRAENI</td>
-                                <td>C30119037</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>LEO HENDRIAWAN</td>
-                                <td>C10119039</td>
-                                <td>Ekonomi dan Pembangunan</td>
-                            </tr>
-                            <tr>
-                                <td>ANDI ANHALMA WATI</td>
-                                <td>C30020037</td>
-                                <td>Akuntansi Sektor Publik</td>
-                            </tr>
-                            <tr>
-                                <td>MASTANG</td>
-                                <td>C30119111</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Veron Delviano</td>
-                                <td>C30119099</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>AGNES PERMATA SARI</td>
-                                <td>C30119144</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMA MIRANTY</td>
-                                <td>C20119198</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>RBG. Septo Cahya Gumilang</td>
-                                <td>C30119114</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Angelina Bere Purba Ndjobu</td>
-                                <td>C30119160</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Shella Febrianti</td>
-                                <td>C10119009</td>
-                                <td>Ekonomi dan Pembangunan</td>
-                            </tr>
-                            <tr>
-                                <td>RAHMAWATI MAULIDA ISMAIL PUTRI</td>
-                                <td>C20119125</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>RANI SAFITRI</td>
-                                <td>C30118078</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Mikha Praise Lady Torisumbi</td>
-                                <td>C30119102</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>AINNAYAH ALFATEHA SUTRISNO</td>
-                                <td>C20119026</td>
-                                <td>Manajemen</td>
-                            </tr>
-                            <tr>
-                                <td>Adinda Maharani A</td>
-                                <td>C30119243</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>FRISCA PRISCILA ARUNDE</td>
-                                <td>C30119029</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>REGYNA MANGOTING</td>
-                                <td>C30119136</td>
-                                <td>Akuntansi</td>
-                            </tr>
-                            <tr>
-                                <td>Beby Ayu Putri Ringganis</td>
-                                <td>C20119513</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Andina oktafiana</td>
-                                <td>C30020002</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HUSNUL MAWADDA</td>
-                                <td>C30118341</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>PETRINCE JULIANINGSIH</td>
-                                <td>C20119082</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Azrial</td>
-                                <td>C20119430</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>HARTIN MIFTAHUL JANNAH</td>
-                                <td>C20119061</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>ARNILA SAM</td>
-                                <td>C30119116</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Utami Rahmawati</td>
-                                <td>C30119107</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>NURKHALIDA</td>
-                                <td>C30119124</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FH -->
-                <div class="tab-pane fade" id="fh" role="tabpanel">
-                    <table id="fh-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>MUH. SAHRUL</td>
-                                <td>D10120301</td>
-                                <td>Ilmu Hukum</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FAPERTA -->
-                <div class="tab-pane fade" id="faperta" role="tabpanel">
-                    <table id="faperta-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nur Aisyah</td>
-                                <td>E32120164</td>
-                                <td>Agribisnis</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FATEK -->
-                <div class="tab-pane fade" id="fatek" role="tabpanel">
-                    <table id="fatek-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Program Studi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FMIPA -->
-                <div class="tab-pane fade" id="fmipa" role="tabpanel">
-
-                    <table id="fmipa-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Aura Angel Lestari</td>
-                                <td>G10119009</td>
-                                <td>Fisika</td>
-                            </tr>
-                            <tr>
-                                <td>Nurchairunnisaa</td>
-                                <td>G10119034</td>
-                                <td>Fisika</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FAHUT -->
-                <div class="tab-pane fade" id="fahut" role="tabpanel">
-                    <table id="fahut-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>AMATI ELTRIMAN HULU</td>
-                                <td>L13120038</td>
-                                <td>Kehutanan</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FAPETKAN -->
-                <div class="tab-pane fade" id="fapetkan" role="tabpanel">
-                    <table id="fapetkan-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama </th>
-                                <th>NIM</th>
-                                <th>Prodi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nova Dwi Ramadhani</td>
-                                <td>O27120007</td>
-                                <td>Akuakultur</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- FKM -->
-                <div class="tab-pane fade" id="fkm" role="tabpanel">
-                    <table id="fkm-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Program Studi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- FISIP -->
+            <div class="tab-pane fade" id="fisip" role="tabpanel">
+              <table id="fisip-table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nama </th>
+                        <th>NIM</th>
+                        <th>Prodi</th>
+                        <th>Sekolah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alfina Deva</td>
+                        <td>B20119004</td>
+                        <td>Sosiologi</td>
+                        <td>SD KARYA THAYYIBAH MAMBORO</td>
+                    </tr>
+                    <tr>
+                        <td>Ali Akbar</td>
+                        <td>B10120176</td>
+                        <td>Ilmu Administrasi Publik</td>
+                        <td>SMP NEGERI 1 TANANTOVEA</td>
+                    </tr>
+                    <tr>
+                        <td>AYU WULANDARI</td>
+                        <td>B20119031</td>
+                        <td>Sosiologi</td>
+                        <td>SMP NEGERI 3 POSO KOTA UTARA</td>
+                    </tr>
+                    <tr>
+                        <td>Hamsah</td>
+                        <td>B20119006</td>
+                        <td>Sosiologi</td>
+                        <td>SD NEGERI 12 LIMRAN</td>
+                    </tr>
+                    <tr>
+                        <td>Mohammad Julianto Koilo</td>
+                        <td>B40119040</td>
+                        <td>Ilmu Pemerintahan</td>
+                        <td>SMP NEGERI 1 SINDUE TOBATA</td>
+                    </tr>
+                    <tr>
+                        <td>Moh . Awal Wahyudin</td>
+                        <td>B10119015</td>
+                        <td>Ilmu Administrasi Publik</td>
+                        <td>SD NEGERI PARANGGI</td>
+                    </tr>
+                    <tr>
+                        <td>Nurfadillah</td>
+                        <td>B20119170</td>
+                        <td>Sosiologi</td>
+                        <td>SMP NEGERI 1 BUNGKU PESISIR</td>
+                    </tr>
+                    <tr>
+                        <td>Rospita Simamora</td>
+                        <td>B20119011</td>
+                        <td>Sosiologi</td>
+                        <td>SMP NEGERI 10 SIGI</td>
+                    </tr>
+                    <tr>
+                        <td>Soviana</td>
+                        <td>B10119105</td>
+                        <td>Ilmu Administrasi Publik</td>
+                        <td>SD NEGERI DONGGALA KODI</td>
+                    </tr>
+                    <tr>
+                        <td>Vita Aulia</td>
+                        <td>B30119031</td>
+                        <td>Antropologi</td>
+                        <td>SMP NEGERI 9 SIGI</td>
+                    </tr>
+                </tbody>
+            </table>
             </div>
+
+            <!-- FEB -->
+            <div class="tab-pane fade" id="feb" role="tabpanel">
+            <table id="feb-table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nama </th>
+                        <th>NIM</th>
+                        <th>Prodi</th>
+                        <th>Sekolah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adinda Maharani A</td>
+                        <td>C30119243</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 9 SIGI</td>
+                    </tr>
+                    <tr>
+                        <td>AGITA RAHMA</td>
+                        <td>C20119024</td>
+                        <td>Manajemen</td>
+                        <td>SDN OGOMEGANGDAERAH KHUSUS</td>
+                    </tr>
+                    <tr>
+                        <td>AGNES PERMATA SARI</td>
+                        <td>C30119144</td>
+                        <td>Akuntansi</td>
+                        <td>SD NEGERI 11 KAYUMABOKO</td>
+                    </tr>
+                    <tr>
+                        <td>AGNES PRATIWI TOWUA</td>
+                        <td>C30020028</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DUYU</td>
+                    </tr>
+                    <tr>
+                        <td>AINNAYAH ALFATEHA SUTRISNO</td>
+                        <td>C20119026</td>
+                        <td>Manajemen</td>
+                        <td>SD NEGERI SINTUWULEMBA</td>
+                    </tr>
+                    <tr>
+                        <td>Ainul Yaqin</td>
+                        <td>C20120021</td>
+                        <td>Manajemen</td>
+                        <td>SMP BALA KESELAMATAN MARANATHA</td>
+                    </tr>
+                    <tr>
+                        <td>Alda Alfiani</td>
+                        <td>C30020036</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DONGGALA KODI</td>
+                    </tr>
+                    <tr>
+                        <td>ANDI ANHALMA WATI</td>
+                        <td>C30020037</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DUYU</td>
+                    </tr>
+                    <tr>
+                        <td>Andina oktafiana</td>
+                        <td>C30020002</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI 046 ARABUA</td>
+                    </tr>
+                    <tr>
+                        <td>ANDI NURFITRIA</td>
+                        <td>C20119054</td>
+                        <td>Manajemen</td>
+                        <td>SD BALA KESELAMATAN PUROO</td>
+                    </tr>
+                    <tr>
+                        <td>Angelina Bere Purba Ndjobu</td>
+                        <td>C30119160</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 11 SIGI</td>
+                    </tr>
+                    <tr>
+                        <td>ARDI WIJAYA</td>
+                        <td>C20119067</td>
+                        <td>Manajemen</td>
+                        <td>SMP NEGERI 1 LAGE</td>
+                    </tr>
+                    <tr>
+                        <td>ARNILA SAM</td>
+                        <td>C30119116</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 2 LABUAN</td>
+                    </tr>
+                    <tr>
+                        <td>ASKIAH ULYAH</td>
+                        <td>C30020013</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI SINTUWULEMBA</td>
+                    </tr>
+                    <tr>
+                        <td>ASRIL</td>
+                        <td>C20119132</td>
+                        <td>Manajemen</td>
+                        <td>SD NEGERI TANDAOLEO</td>
+                    </tr>
+                    <tr>
+                        <td>Audrey pramesrti pallawarukka</td>
+                        <td>C30020003</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DONGGALA KODI</td>
+                    </tr>
+                    <tr>
+                        <td>Azrial</td>
+                        <td>C20119430</td>
+                        <td>Manajemen</td>
+                        <td>SDN 18 BANAWA</td>
+                    </tr>
+                    <tr>
+                        <td>Beby Ayu Putri Ringganis</td>
+                        <td>C20119513</td>
+                        <td>Manajemen</td>
+                        <td>SD INPRES 9 BAMBA</td>
+                    </tr>
+                    <tr>
+                        <td>CONNY MINI NABUASA</td>
+                        <td>C20119583</td>
+                        <td>Manajemen</td>
+                        <td>SDIT BINA ANAK BANGSA</td>
+                    </tr>
+                    <tr>
+                        <td>Dini Lorenza</td>
+                        <td>C20119041</td>
+                        <td>Manajemen</td>
+                        <td>SD NEGERI 2 TINGGEDE</td>
+                    </tr>
+                    <tr>
+                        <td>EGA TRIA ANGGRAENI</td>
+                        <td>C30119037</td>
+                        <td>Akuntansi</td>
+                        <td>SDN 28 BALAESANG</td>
+                    </tr>
+                    <tr>
+                        <td>Erlyn Kapele</td>
+                        <td>C20120243</td>
+                        <td>Manajemen</td>
+                        <td>SDN 8 BANAWA</td>
+                    </tr>
+                    <tr>
+                        <td>FITRI SUSANTI</td>
+                        <td>C20119221</td>
+                        <td>Manajemen</td>
+                        <td>SD NEGERI TANDAOLEO</td>
+                    </tr>
+                    <tr>
+                        <td>FRANSISKA PILIM</td>
+                        <td>C20119505</td>
+                        <td>Manajemen</td>
+                        <td>SMP NEGERI 10 SIGI</td>
+                    </tr>
+                    <tr>
+                        <td>FRISCA PRISCILA ARUNDE</td>
+                        <td>C30119029</td>
+                        <td>Akuntansi</td>
+                        <td>SD NEGERI SINTUWULEMBA</td>
+                    </tr>
+                    <tr>
+                        <td>GEBY SINTA</td>
+                        <td>C10119213</td>
+                        <td>Ekonomi dan Pembangunan</td>
+                        <td>SD INPRES 2 BALUASE</td>
+                    </tr>
+                    <tr>
+                        <td>HARTIN MIFTAHUL JANNAH</td>
+                        <td>C20119061</td>
+                        <td>Manajemen</td>
+                        <td>SD INPRES 2 BALUASE</td>
+                    </tr>
+                    <tr>
+                        <td>Hesti</td>
+                        <td>C30020007</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DUYU</td>
+                    </tr>
+                    <tr>
+                        <td>HIKMAWATI</td>
+                        <td>C20119102</td>
+                        <td>Manajemen</td>
+                        <td>SD NEGERI TANDAOLEO</td>
+                    </tr>
+                    <tr>
+                        <td>HUSNUL MAWADDA</td>
+                        <td>C30118341</td>
+                        <td>Akuntansi</td>
+                        <td>SD KECIL OLOBARU</td>
+                    </tr>
+                    <tr>
+                        <td>I Gusti Rai Widnyani</td>
+                        <td>C30119083</td>
+                        <td>Akuntansi</td>
+                        <td>SMP KRISTEN GKST 3 TENTENA</td>
+                    </tr>
+                    <tr>
+                        <td>Ika Sulistyowati</td>
+                        <td>C20119032</td>
+                        <td>Manajemen</td>
+                        <td>SDN 18 BANAWA</td>
+                    </tr>
+                    <tr>
+                        <td>INDA PRATISTA</td>
+                        <td>C30119110</td>
+                        <td>Akuntansi</td>
+                        <td>SD ISLAM TERPADU IMAM MUSLIM</td>
+                    </tr>
+                    <tr>
+                        <td>LEO HENDRIAWAN</td>
+                        <td>C10119039</td>
+                        <td>Ekonomi dan Pembangunan</td>
+                        <td>SMP NEGERI 1 SINDUE TOBATA</td>
+                    </tr>
+                    <tr>
+                        <td>MASTANG</td>
+                        <td>C30119111</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 1 SINDUE</td>
+                    </tr>
+                    <tr>
+                        <td>MEISYE TRI MARIA</td>
+                        <td>C30020025</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DONGGALA KODI</td>
+                    </tr>
+                    <tr>
+                        <td>Mikha Praise Lady Torisumbi</td>
+                        <td>C30119102</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 2 LABUAN</td>
+                    </tr>
+                    <tr>
+                        <td>MOH ALGIFARI</td>
+                        <td>C20120291</td>
+                        <td>Manajemen</td>
+                        <td>SD INPRES 9 BAMBA</td>
+                    </tr>
+                    <tr>
+                        <td>MUNAWARAH</td>
+                        <td>C30119096</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 1 POSO PESISIR SELATAN</td>
+                    </tr>
+                    <tr>
+                        <td>Musdalifa Aprilia R. Ali</td>
+                        <td>C30119026</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 1 POSO PESISIR</td>
+                    </tr>
+                    <tr>
+                        <td>Naspa</td>
+                        <td>C30020035</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DONGGALA KODI</td>
+                    </tr>
+                    <tr>
+                        <td>Ni komang widiasih</td>
+                        <td>C20119367</td>
+                        <td>Manajemen</td>
+                        <td>SD INPRES TOLOLE</td>
+                    </tr>
+                    <tr>
+                        <td>NURKHALIDA</td>
+                        <td>C30119124</td>
+                        <td>Akuntansi</td>
+                        <td>SDN 5 SINDUE TOMBUSABORA</td>
+                    </tr>
+                    <tr>
+                        <td>NUR SYAMI NOVIANTI</td>
+                        <td>C30020034</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI 2 TINGGEDE</td>
+                    </tr>
+                    <tr>
+                        <td>Octavia prasetiawati</td>
+                        <td>C30119158</td>
+                        <td>Akuntansi</td>
+                        <td>SD KARYA THAYYIBAH MAMBORO</td>
+                    </tr>
+                    <tr>
+                        <td>PETRINCE JULIANINGSIH</td>
+                        <td>C20119082</td>
+                        <td>Manajemen</td>
+                        <td>SMP NEGERI 2 LABUAN</td>
+                    </tr>
+                    <tr>
+                        <td>Rachmat Arta Wijaya</td>
+                        <td>C30119131</td>
+                        <td>Akuntansi</td>
+                        <td>SD NEGERI 17 PALU</td>
+                    </tr>
+                    <tr>
+                        <td>Rahmadhyta saptari</td>
+                        <td>C30020014</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DUYU</td>
+                    </tr>
+                    <tr>
+                        <td>RAHMA MIRANTY</td>
+                        <td>C20119198</td>
+                        <td>Manajemen</td>
+                        <td>SDN 8 BANAWA</td>
+                    </tr>
+                    <tr>
+                        <td>Rahmatia Nur</td>
+                        <td>C20120264</td>
+                        <td>Manajemen</td>
+                        <td>SDN 2 BANAWA SELATAN</td>
+                    </tr>
+                    <tr>
+                        <td>RAHMAWATI MAULIDA ISMAIL PUTRI</td>
+                        <td>C20119125</td>
+                        <td>Manajemen</td>
+                        <td>SD ISLAM IQRA PETOBO</td>
+                    </tr>
+                    <tr>
+                        <td>RANI SAFITRI</td>
+                        <td>C30118078</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 9 SIGI</td>
+                    </tr>
+                    <tr>
+                        <td>RBG. Septo Cahya Gumilang</td>
+                        <td>C30119114</td>
+                        <td>Akuntansi</td>
+                        <td>SD KARYA THAIYYIBAH BAIYA</td>
+                    </tr>
+                    <tr>
+                        <td>REGYNA MANGOTING</td>
+                        <td>C30119136</td>
+                        <td>Akuntansi</td>
+                        <td>SD INPRES 3 TONDO</td>
+                    </tr>
+                    <tr>
+                        <td>SESILIA HESTI T. B.</td>
+                        <td>C30020004</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI 046 ARABUA</td>
+                    </tr>
+                    <tr>
+                        <td>Shella Febrianti</td>
+                        <td>C10119009</td>
+                        <td>Ekonomi dan Pembangunan</td>
+                        <td>SD INPRES BINANGGA</td>
+                    </tr>
+                    <tr>
+                        <td>Sugandi</td>
+                        <td>C20119347</td>
+                        <td>Manajemen</td>
+                        <td>SD KECIL OLOBARU</td>
+                    </tr>
+                    <tr>
+                        <td>SUKMAWATI</td>
+                        <td>C10119140</td>
+                        <td>Ekonomi dan Pembangunan</td>
+                        <td>SD NEGERI 11 KAYUMABOKO</td>
+                    </tr>
+                    <tr>
+                        <td>USWATUN HASANAH</td>
+                        <td>C30119133</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 5 LAWE SIGALA-GALA</td>
+                    </tr>
+                    <tr>
+                        <td>Utami Rahmawati</td>
+                        <td>C30119107</td>
+                        <td>Akuntansi</td>
+                        <td>SMP NEGERI 1 SOJOL UTARA</td>
+                    </tr>
+                    <tr>
+                        <td>Veron Delviano</td>
+                        <td>C30119099</td>
+                        <td>Akuntansi</td>
+                        <td>SD INPRES BINANGGA</td>
+                    </tr>
+                    <tr>
+                        <td>Wahyuni</td>
+                        <td>C30020001</td>
+                        <td>Akuntansi Sektor Publik</td>
+                        <td>SD NEGERI DUYU</td>
+                    </tr>
+                    <tr>
+                        <td>Wiqra Safira</td>
+                        <td>C30119187</td>
+                        <td>Akuntansi</td>
+                        <td>SD INPRES 3 TONDO</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <!-- FH -->
+            <div class="tab-pane fade" id="fh" role="tabpanel">
+              <table id="fh-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>MUH. SAHRUL</td>
+                    <td>D10120301</td>
+                    <td>Ilmu Hukum</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FAPERTA -->
+            <div class="tab-pane fade" id="faperta" role="tabpanel">
+              <table id="faperta-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nur Aisyah</td>
+                    <td>E32120164</td>
+                    <td>Agribisnis</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FATEK -->
+            <div class="tab-pane fade" id="fatek" role="tabpanel">
+              <table id="fatek-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Program Studi</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <!-- FMIPA -->
+            <div class="tab-pane fade" id="fmipa" role="tabpanel">
+              <table id="fmipa-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Aura Angel Lestari</td>
+                    <td>G10119009</td>
+                    <td>Fisika</td>
+                  </tr>
+                  <tr>
+                    <td>Nurchairunnisaa</td>
+                    <td>G10119034</td>
+                    <td>Fisika</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FAHUT -->
+            <div class="tab-pane fade" id="fahut" role="tabpanel">
+              <table id="fahut-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>AMATI ELTRIMAN HULU</td>
+                    <td>L13120038</td>
+                    <td>Kehutanan</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FAPETKAN -->
+            <div class="tab-pane fade" id="fapetkan" role="tabpanel">
+              <table id="fapetkan-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nova Dwi Ramadhani</td>
+                    <td>O27120007</td>
+                    <td>Akuakultur</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FKM -->
+            <div class="tab-pane fade" id="fkm" role="tabpanel">
+              <table id="fkm-table" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Program Studi</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
-    
-</div>
-
-<!-- Bootstrap and DataTables JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
+    <!-- Bootstrap and DataTables JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function () {
         // Apply DataTables to all tables
-        $('table').DataTable();
-    });
-</script>
-
-</body>
+        $("table").DataTable();
+      });
+    </script>
+  </body>
 </html>
