@@ -96,6 +96,12 @@
             <div class="d-flex align-items-right gap-2 gap-lg-3">
                 <h5 class="card-title">Data Magang dan Studi Independen Bersertifikat Batch 7</h5>
                 <button id="download-btn" class="btn btn-primary">Download Excel</button>
+                <button type="button" id="count-result" class="btn btn-light position-relative">
+                    Total Peserta Tingkat Universitas
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="total-count">
+                        100
+                    </span>
+                </button>
             </div>
             <hr>
             <!-- Tab content for Fakultas -->
@@ -1355,6 +1361,36 @@
         }
     });
 </script>
+<script>
+    // Array untuk menyimpan ID tabel
+    const tableIds = [
+        'fkip-table', 'fisip-table', 'feb-table', 'fh-table', 
+        'faperta-table', 'fatek-table', 'fmipa-table', 
+        'fahut-table', 'fapetkan-table', 'fkm-table'
+    ];
 
+    // Fungsi untuk menghitung total baris di semua tabel
+    function countTotalRows() {
+        let totalRows = 0;
+        tableIds.forEach(id => {
+            const table = document.getElementById(id);
+            if (table) {
+                const rowCount = table.querySelectorAll('tbody tr').length;
+                totalRows += rowCount;
+            }
+        });
+        return totalRows;
+    }
+
+    // Ganti angka pada badge dengan hasil count
+    function updateTotalCount() {
+        const totalRows = countTotalRows();
+        const totalCountSpan = document.getElementById('total-count');
+        totalCountSpan.textContent = totalRows;
+    }
+
+    // Panggil fungsi untuk update total count saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', updateTotalCount);
+</script>
 </body>
 </html>
